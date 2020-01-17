@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
-    Vector2 input = new Vector2();
+    [SerializeField] float moveSpeed = 15f;
+
+    Rigidbody2D rigidbody;
+    Vector2 moveInput = new Vector2();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        input.x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        input.y = Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        moveInput.x = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+        moveInput.y = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
 
-        transform.position += new Vector3(input.x, input.y, 0);
+        rigidbody.velocity = moveInput * moveSpeed;
     }
 }
