@@ -5,12 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float timeBetweenShots = 0.2f;
     [SerializeField] Transform gunArm;
+    [SerializeField] GameObject bulletToFire;
+    [SerializeField] Transform firePoint;
 
     Rigidbody2D rigidbody;
     Vector2 moveInput = new Vector2();
     Camera camera;
     Animator animator;
+    float shotCounter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +52,17 @@ public class PlayerController : MonoBehaviour
         Vector2 offset = new Vector2(mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         gunArm.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        if(Input.GetMouseButton(0))
+        {
+            shotCounter -= Time.deltaTime;
+
+            if(shotCounter <= 0)
+            {
+                Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+                shotCounter = timeBetweenShots;
+            }
+        }       
 
         //Анимация ходьбы
         if(moveInput != Vector2.zero)
