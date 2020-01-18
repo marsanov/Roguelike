@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigidbody;
     Vector2 moveInput = new Vector2();
     Camera camera;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         camera = Camera.main;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
 
+        moveInput.Normalize();
+        
         rigidbody.velocity = moveInput * moveSpeed;
 
         Vector3 mousePosition = Input.mousePosition;
@@ -44,5 +48,15 @@ public class PlayerController : MonoBehaviour
         Vector2 offset = new Vector2(mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         gunArm.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        //Анимация ходьбы
+        if(moveInput != Vector2.zero)
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
     }
 }
