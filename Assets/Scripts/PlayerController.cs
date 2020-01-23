@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] int health = 100;
     [SerializeField] float timeBetweenShots = 0.2f;
     [SerializeField] Transform gunArm;
     [SerializeField] GameObject bulletToFire;
@@ -16,6 +19,10 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     float shotCounter = 0;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +38,13 @@ public class PlayerController : MonoBehaviour
         moveInput.y = Input.GetAxis("Vertical");
 
         moveInput.Normalize();
-        
+
         rigidbody.velocity = moveInput * moveSpeed;
 
         Vector3 mousePosition = Input.mousePosition;
         Vector3 screenPoint = camera.WorldToScreenPoint(transform.localPosition);
 
-        if(mousePosition.x < screenPoint.x)
+        if (mousePosition.x < screenPoint.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
             gunArm.localScale = new Vector3(-1, -1, 1);
@@ -53,19 +60,19 @@ public class PlayerController : MonoBehaviour
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         gunArm.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             shotCounter -= Time.deltaTime;
 
-            if(shotCounter <= 0)
+            if (shotCounter <= 0)
             {
                 Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
                 shotCounter = timeBetweenShots;
             }
-        }       
+        }
 
         //Анимация ходьбы
-        if(moveInput != Vector2.zero)
+        if (moveInput != Vector2.zero)
         {
             animator.SetBool("isMoving", true);
         }
@@ -73,5 +80,13 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
         }
+    }
+
+    public void DamagePlayer(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+            Destroy(gameObject);
     }
 }

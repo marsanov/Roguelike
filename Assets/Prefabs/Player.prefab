@@ -324,9 +324,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  health: 100
   timeBetweenShots: 0.2
   gunArm: {fileID: 5349494449800435378}
-  bulletToFire: {fileID: 1765750029101765068, guid: 8967fafb94793764085cd619522710b4,
+  bulletToFire: {fileID: 4215796804375094410, guid: 8189f83b04acc614f941420d37f7aad4,
     type: 3}
   firePoint: {fileID: 2106373166}
 --- !u!58 &5349494449481429484

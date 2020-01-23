@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2241664427761613742}
   m_Layer: 0
   m_Name: Suren
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   moveSpeed: 5
   timeBetweenShots: 0.2
   gunArm: {fileID: 2241664427711061234}
-  bulletToFire: {fileID: 1765750029101765068, guid: 8967fafb94793764085cd619522710b4,
+  bulletToFire: {fileID: 4215796804375094410, guid: 8189f83b04acc614f941420d37f7aad4,
     type: 3}
   firePoint: {fileID: 6135808352465403502}
 --- !u!114 &4128503113758951410
@@ -275,7 +275,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1905512983
   m_SortingLayer: 1
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 3897621596536548394, guid: a47294d8f066c634d90ee371916313ff,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
