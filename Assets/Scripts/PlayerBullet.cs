@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour {
-    [SerializeField] float speed = 7.5f;
+    [SerializeField] float moveSpeed = 7.5f;
     [SerializeField] int bulletDamage = 10;
     [SerializeField] GameObject impactEffect;
 
@@ -12,7 +12,7 @@ public class PlayerBullet : MonoBehaviour {
     }
 
     private void Update() {
-        rigidbody.velocity = transform.right * speed;
+        rigidbody.velocity = transform.right * moveSpeed;
     }
 
     

@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
+    public SpriteRenderer playerBodySR;
 
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] int health = 100;
+    [SerializeField] float dashSpeed = 15f, dashLength = 1f, dashCooldown = 1f, dashInvincibility = 1f;
+    [SerializeField] GameObject dashImpact;
     [SerializeField] float timeBetweenShots = 0.2f;
     [SerializeField] Transform gunArm;
     [SerializeField] GameObject bulletToFire;
@@ -18,6 +20,8 @@ public class PlayerController : MonoBehaviour
     Camera camera;
     Animator animator;
     float shotCounter = 0;
+    float activeMoveSpeed;
+    float dashCounter, dashCooldownCounter;
 
     private void Awake()
     {
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         camera = Camera.main;
         animator = GetComponent<Animator>();
+        activeMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -39,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
         moveInput.Normalize();
 
-        rigidbody.velocity = moveInput * moveSpeed;
+        rigidbody.velocity = moveInput * activeMoveSpeed;
 
         Vector3 mousePosition = Input.mousePosition;
         Vector3 screenPoint = camera.WorldToScreenPoint(transform.localPosition);
@@ -60,6 +65,7 @@ public class PlayerController : MonoBehaviour
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         gunArm.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
+        //Стрельба
         if (Input.GetMouseButton(0))
         {
             shotCounter -= Time.deltaTime;
@@ -71,6 +77,32 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        //Dash
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (dashCooldownCounter <= 0 && dashCounter <= 0)
+            {
+                activeMoveSpeed = dashSpeed;
+                dashCounter = dashLength;
+                dashImpact.SetActive(true);
+                PlayerHealthController.instance.MakeInvincible(dashInvincibility);
+            }
+        }
+        if (dashCounter > 0)
+        {
+            dashCounter -= Time.deltaTime;
+            if (dashCounter <= 0)
+            {
+                activeMoveSpeed = moveSpeed;
+                dashCooldownCounter = dashCooldown;
+                dashImpact.SetActive(false);
+            }
+        }
+        if (dashCooldownCounter > 0)
+        {
+            dashCooldownCounter -= Time.deltaTime;
+        }
+
         //Анимация ходьбы
         if (moveInput != Vector2.zero)
         {
@@ -80,13 +112,5 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
         }
-    }
-
-    public void DamagePlayer(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0)
-            Destroy(gameObject);
     }
 }

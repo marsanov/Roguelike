@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firePoint;
     [SerializeField] float fireRate;
+    [SerializeField] float shootRange = 7f;
+    [SerializeField] SpriteRenderer bodySprite;
 
     Rigidbody2D rigidbody;
     Vector3 moveDirection;
@@ -26,6 +28,32 @@ public class EnemyController : MonoBehaviour
     }
 
     void Update()
+    {
+        if (bodySprite.isVisible && PlayerController.instance.gameObject.activeInHierarchy)
+        {
+            Move();
+            Shoot();
+        }
+        else
+        {
+            rigidbody.velocity = Vector3.zero;
+        }
+    }
+
+    private void Shoot()
+    {
+        if (shouldShoot && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < shootRange)
+        {
+            fireCounter -= Time.deltaTime;
+            if (fireCounter <= 0)
+            {
+                fireCounter = fireRate;
+                Instantiate(bullet, firePoint.position, firePoint.rotation);
+            }
+        }
+    }
+
+    private void Move()
     {
         if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < chaseDistance)
         {
@@ -47,15 +75,6 @@ public class EnemyController : MonoBehaviour
         else
         {
             animator.SetBool("isMoving", false);
-        }
-        if(shouldShoot)
-        {
-            fireCounter -= Time.deltaTime;
-            if(fireCounter <=0)
-            {
-                fireCounter = fireRate;
-                Instantiate(bullet, firePoint.position, firePoint.rotation);
-            }
         }
     }
 

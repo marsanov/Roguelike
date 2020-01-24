@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2106373166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5349494448946643868}
   - component: {fileID: 5349494448946643871}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5349494449067234657}
   - component: {fileID: 5349494449067234656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5349494449341337515}
   - component: {fileID: 5349494449341337514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,9 +286,9 @@ GameObject:
   - component: {fileID: 5349494449481429484}
   - component: {fileID: 5349494449481429487}
   - component: {fileID: 5349494449481429486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,8 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1c961b37bc07246966a8c396f796a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBodySR: {fileID: 5349494449067234656}
   moveSpeed: 5
-  health: 100
   timeBetweenShots: 0.2
   gunArm: {fileID: 5349494449800435378}
   bulletToFire: {fileID: 4215796804375094410, guid: 8189f83b04acc614f941420d37f7aad4,
@@ -396,7 +396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5349494449800435378}
   - component: {fileID: 5349494449800435389}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
