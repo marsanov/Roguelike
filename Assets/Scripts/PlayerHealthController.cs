@@ -9,6 +9,7 @@ public class PlayerHealthController : MonoBehaviour
     [SerializeField] int currentHealth;
     [SerializeField] int maxHealth = 100;
     [SerializeField] float damageInvincLength = 1f;
+    [SerializeField] int hurtSoundIndex;
 
     float invincCount;
 
@@ -41,6 +42,7 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (invincCount <= 0)
         {
+            AudioManager.instance.PlaySFX(hurtSoundIndex);
             PlayerController.instance.playerBodySR.color = new Color(1, 0, 0, 0.5f);
             invincCount = damageInvincLength;
             currentHealth -= damage;
@@ -50,6 +52,7 @@ public class PlayerHealthController : MonoBehaviour
             {
                 PlayerController.instance.gameObject.SetActive(false);
                 UIController.instance.deathScreen.SetActive(true);
+                AudioManager.instance.PlayGameOver();
             }
         }
     }

@@ -1,29 +1,41 @@
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour {
+public class PlayerBullet : MonoBehaviour
+{
     [SerializeField] float moveSpeed = 7.5f;
     [SerializeField] int bulletDamage = 10;
     [SerializeField] GameObject impactEffect;
+    [SerializeField] int bulletSoundIndex;
+    [SerializeField] int bulletImpactSoundIndex;
 
     Rigidbody2D rigidbody;
-    
-    private void Start() {
+
+    private void Start()
+    {
         rigidbody = GetComponent<Rigidbody2D>();
+        AudioManager.instance.PlaySFX(bulletSoundIndex);
     }
 
-    private void Update() {
+    private void Update()
+    {
         rigidbody.velocity = transform.right * moveSpeed;
     }
 
-    
-    private void OnTriggerEnter2D(Collider2D other) {
-        Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
 
-        other.GetComponent<EnemyController>().DamaGeEnemy(bulletDamage);
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyController>().DamaGeEnemy(bulletDamage);
+        }
+
+        Instantiate(impactEffect, transform.position, transform.rotation);
+        AudioManager.instance.PlaySFX(bulletImpactSoundIndex);
+        Destroy(gameObject);
     }
 
-    private void OnBecameInvisible() {
+    private void OnBecameInvisible()
+    {
         Destroy(gameObject);
     }
 }

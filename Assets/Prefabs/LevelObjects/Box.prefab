@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1911368051509050574}
   - component: {fileID: 1911368051509050575}
   - component: {fileID: 1911368051509050560}
-  m_Layer: 0
+  - component: {fileID: 1558393002}
+  m_Layer: 12
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1669952821
-  m_SortingLayer: 3
+  m_SortingLayerID: -290843883
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4098156409588004937, guid: b1e514ee9c00f0c458e99f588dfa4cb0,
     type: 3}
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02eb32a36d23e348b265df3f29f93a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breackSound: 0
   brokenPieces:
   - {fileID: 2935156648601862327, guid: 5aaa45be9810b50499058c1bf2274311, type: 3}
   - {fileID: 6915561912183896930, guid: 0bd45faa8d60bd64fbc9a1a764467156, type: 3}
@@ -133,4 +135,16 @@ MonoBehaviour:
   itemsToDrop:
   - {fileID: 850993832479356682, guid: 0b4758a17a9fa644cb2fcc56d55bc118, type: 3}
   - {fileID: 3244091675094951706, guid: ed8ac5ad0373d5447a963a01de6f3780, type: 3}
-  dropPercentChance: 15
+  dropPercentChance: 35
+--- !u!114 &1558393002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911368051509050572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef21febeab380f045992616f178e4302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

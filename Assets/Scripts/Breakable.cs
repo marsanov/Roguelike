@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Breakable : MonoBehaviour
 {
+    [SerializeField] int breackSound;
     [SerializeField] GameObject[] brokenPieces;
     [SerializeField] int maxPieces = 3;
     [SerializeField] bool shouldDropItems;
@@ -28,26 +29,36 @@ public class Breakable : MonoBehaviour
         {
             if (PlayerController.instance.dashCounter > 0)
             {
-                //Дроп кусочков боксов
-                int piecesToDrop = Random.Range(1, maxPieces);
-                for (int i = 0; i < piecesToDrop; i++)
-                {
-                    int randomPiece = Random.Range(0, brokenPieces.Length);
-                    Instantiate(brokenPieces[randomPiece], transform.position, transform.rotation);
-                }
-
-                //Дроп лута
-                if (shouldDropItems)
-                {
-                    float dropChance = Random.Range(0f, 100f);
-                    if (dropChance < dropPercentChance)
-                    {
-                        int randomItem = Random.Range(0, itemsToDrop.Length);
-                        Instantiate(itemsToDrop[randomItem], transform.position, transform.rotation);
-                    }
-                }
-                Destroy(gameObject);
+                Smash();
             }
         }
+        if(other.tag == "PlayerBullet")
+        {
+            Smash();
+        }
+    }
+
+    private void Smash()
+    {
+        //Дроп кусочков боксов
+        int piecesToDrop = Random.Range(1, maxPieces);
+        for (int i = 0; i < piecesToDrop; i++)
+        {
+            int randomPiece = Random.Range(0, brokenPieces.Length);
+            Instantiate(brokenPieces[randomPiece], transform.position, transform.rotation);
+        }
+
+        //Дроп лута
+        if (shouldDropItems)
+        {
+            float dropChance = Random.Range(0f, 100f);
+            if (dropChance < dropPercentChance)
+            {
+                int randomItem = Random.Range(0, itemsToDrop.Length);
+                Instantiate(itemsToDrop[randomItem], transform.position, transform.rotation);
+            }
+        }
+        Destroy(gameObject);
+        AudioManager.instance.PlaySFX(breackSound);
     }
 }

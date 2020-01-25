@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6456155238139157541}
   - component: {fileID: 1981739180}
   - component: {fileID: 1981739181}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HealthPickup 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -910880763
-  m_SortingLayer: 4
+  m_SortingLayerID: -1669952821
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 384700277192883564, guid: fb2a687d5414ef4459761bcb1a9529e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,3 +121,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 100
+  waitToBecollected: 0.5
+  healSoundIndex: 7

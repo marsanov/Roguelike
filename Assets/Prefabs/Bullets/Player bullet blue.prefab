@@ -90,18 +90,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6678337044748399268, guid: 8967fafb94793764085cd619522710b4,
         type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1913602139
+      propertyPath: m_SortingLayer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -6678337044748399268, guid: 8967fafb94793764085cd619522710b4,
         type: 3}
-      propertyPath: m_SortingLayer
-      value: 6
+      propertyPath: m_SortingLayerID
+      value: -1848397061
+      objectReference: {fileID: 0}
+    - target: {fileID: 804999054090434994, guid: 8967fafb94793764085cd619522710b4,
+        type: 3}
+      propertyPath: bulletSoundIndex
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 804999054090434994, guid: 8967fafb94793764085cd619522710b4,
+        type: 3}
+      propertyPath: bulletImpactSoundIndex
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1765750029101765068, guid: 8967fafb94793764085cd619522710b4,
         type: 3}
       propertyPath: m_Name
       value: Player bullet blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765750029101765068, guid: 8967fafb94793764085cd619522710b4,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerBullet
       objectReference: {fileID: 0}
     - target: {fileID: 2208474481780755439, guid: 8967fafb94793764085cd619522710b4,
         type: 3}

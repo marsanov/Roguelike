@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     public SpriteRenderer playerBodySR;
     [HideInInspector] public float dashCounter;
-
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float dashSpeed = 15f, dashLength = 1f, dashCooldown = 1f, dashInvincibility = 1f;
     [SerializeField] GameObject dashImpact;
+    [SerializeField] int dashSoundIndex;
     [SerializeField] float timeBetweenShots = 0.2f;
     [SerializeField] Transform gunArm;
     [SerializeField] GameObject bulletToFire;
@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
         {
             if (dashCooldownCounter <= 0 && dashCounter <= 0)
             {
+                AudioManager.instance.PlaySFX(dashSoundIndex);
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 dashImpact.SetActive(true);
