@@ -7,7 +7,7 @@ public class PlayerHealthController : MonoBehaviour
     public static PlayerHealthController instance;
 
     [SerializeField] int currentHealth;
-    [SerializeField] int maxHexlth = 100;
+    [SerializeField] int maxHealth = 100;
     [SerializeField] float damageInvincLength = 1f;
 
     float invincCount;
@@ -19,7 +19,7 @@ public class PlayerHealthController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHexlth;
+        currentHealth = maxHealth;
         FillHealthBar();
     }
 
@@ -60,11 +60,20 @@ public class PlayerHealthController : MonoBehaviour
         Color playerColor = PlayerController.instance.playerBodySR.color;
         PlayerController.instance.playerBodySR.color = new Color(playerColor.r, playerColor.g, playerColor.b, 0.5f);
     }
+    public void HealPlayer(int healAmount)
+    {
+        currentHealth += healAmount;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        FillHealthBar();
+    }
 
     //Private methods
     private void FillHealthBar()
     {
-        UIController.instance.healthSlider.fillAmount = (float)currentHealth / maxHexlth;
-        UIController.instance.healthText.text = currentHealth + " / " + maxHexlth;
+        UIController.instance.healthSlider.fillAmount = (float)currentHealth / maxHealth;
+        UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
     }
 }

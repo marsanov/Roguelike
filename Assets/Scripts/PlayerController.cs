@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     public SpriteRenderer playerBodySR;
+    [HideInInspector] public float dashCounter;
 
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float dashSpeed = 15f, dashLength = 1f, dashCooldown = 1f, dashInvincibility = 1f;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     float shotCounter = 0;
     float activeMoveSpeed;
-    float dashCounter, dashCooldownCounter;
+    float dashCooldownCounter;
 
     private void Awake()
     {
