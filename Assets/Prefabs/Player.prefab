@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -335,7 +335,7 @@ MonoBehaviour:
   dashSoundIndex: 8
   timeBetweenShots: 0.2
   gunArm: {fileID: 5349494449800435378}
-  bulletToFire: {fileID: 4215796804375094410, guid: 8189f83b04acc614f941420d37f7aad4,
+  bulletToFire: {fileID: 4006275886354655651, guid: fcf2ba6c308a6bc459a44f340717ba01,
     type: 3}
   firePoint: {fileID: 2106373166}
 --- !u!58 &5349494449481429484
@@ -488,11 +488,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dash
       objectReference: {fileID: 0}
-    - target: {fileID: 5885728459933599886, guid: 682d6492a0cd17045aa1a3120957da75,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7354911615102269583, guid: 682d6492a0cd17045aa1a3120957da75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -552,11 +547,6 @@ PrefabInstance:
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
       value: 0.10714722
-      objectReference: {fileID: 0}
-    - target: {fileID: 9217721933076672905, guid: 682d6492a0cd17045aa1a3120957da75,
-        type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 682d6492a0cd17045aa1a3120957da75, type: 3}
