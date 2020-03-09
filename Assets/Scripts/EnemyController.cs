@@ -4,30 +4,58 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [Header("Stats")]
     public int health = 150;
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float chaseDistance = 7f;
-    [SerializeField] GameObject[] deathSplatters;
-    [SerializeField] int dieSoundIndex;
-    [SerializeField] int hurtSoundIndex;
-    [SerializeField] GameObject hitEffect;
+
+    [Header("Shooting")]
     [SerializeField] bool shouldShoot;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firePoint;
     [SerializeField] float fireRate;
     [SerializeField] float shootRange = 7f;
     [SerializeField] int shootSoundIndex;
-    [SerializeField] SpriteRenderer bodySprite;
+    float fireCounter;
 
-    Rigidbody2D rigidbody;
+    [Header("Agro")]
+    [SerializeField] bool shouldChasePlayer;
+    [SerializeField] float chaseDistance = 7f;
+
+    [Header("Run away")]
+    [SerializeField] bool shouldRunAway;
+    [SerializeField] float rangeToChasePlayer;
+
+    [Header("Wandering")]
+    [SerializeField] bool shouldWander;
+    [SerializeField] float wanderLength, pauseLength;
+    private float wanderCounter, pauseCounter;
+    private Vector3 wanderDirectiion;
+
+    [Header("Patrolling")]
+    [SerializeField] bool shouldPatrol;
+    [SerializeField] Transform[] patrolPoints;
+    int currentPatrolPoint = 0;
+
+    [Header("Hurt & Death")]
+    [SerializeField] GameObject hitEffect;
+    [SerializeField] GameObject[] deathSplatters;
+    [SerializeField] int dieSoundIndex;
+    [SerializeField] int hurtSoundIndex;
+    [SerializeField] SpriteRenderer bodySprite;
     Vector3 moveDirection;
     Animator animator;
-    float fireCounter;
+    Rigidbody2D rigidbody;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        if (shouldWander)
+        {
+            wanderCounter = Random.Range(wanderLength * 0.75f, wanderLength * 1.25f);
+            pauseCounter = Random.Range(pauseLength * 0.75f, pauseLength * 1.25f);
+        }
     }
 
     void Update()
@@ -59,15 +87,66 @@ public class EnemyController : MonoBehaviour
 
     private void Move()
     {
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < chaseDistance)
+        moveDirection = Vector3.zero;
+        float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+
+        if (distanceToPlayer < chaseDistance && shouldChasePlayer)
         {
             moveDirection = PlayerController.instance.transform.position - transform.position;
         }
         else
         {
+            if (shouldWander)
+            {
+                if (wanderCounter > 0)
+                {
+                    wanderCounter -= Time.deltaTime;
+
+                    //Move the enemy
+                    moveDirection = wanderDirectiion;
+
+                    if (wanderCounter <= 0)
+                    {
+                        pauseCounter = Random.Range(pauseLength * 0.75f, pauseLength * 1.25f);
+                    }
+                }
+
+                if (pauseCounter > 0)
+                {
+                    pauseCounter -= Time.deltaTime;
+                    if (pauseCounter <= 0)
+                    {
+                        wanderCounter = Random.Range(wanderLength * 0.75f, wanderLength * 1.25f);
+
+                        wanderDirectiion = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+                    }
+                }
+            }
+
+            if (shouldPatrol)
+            {
+                moveDirection = patrolPoints[currentPatrolPoint].position - transform.position;
+
+                if (Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < .2f)
+                {
+                    currentPatrolPoint++;
+                    if(currentPatrolPoint >= patrolPoints.Length)
+                    {
+                        currentPatrolPoint = 0;
+                    }
+                }
+            }
+        }
+        if (shouldRunAway && distanceToPlayer < rangeToChasePlayer)
+        {
+            moveDirection = transform.position - PlayerController.instance.transform.position;
+        }
+        /*
+        else
+        {
             moveDirection = Vector3.zero;
         }
-
+        */
         moveDirection.Normalize();
 
         rigidbody.velocity = moveDirection * moveSpeed;
