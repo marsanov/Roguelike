@@ -78,6 +78,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   moveSpeed: 5
+  shouldDropItems: 1
+  itemsToDrop:
+  - {fileID: 158923763652747602, guid: c35de699c4649144f9b1589c8cb30194, type: 3}
+  dropPercentChance: 40
   shouldShoot: 1
   bullet: {fileID: 7622934989392637038, guid: 8ec73207667d1ac42b4ed8a01a94a5a4, type: 3}
   firePoint: {fileID: 1919831234903059831}

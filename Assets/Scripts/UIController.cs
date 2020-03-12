@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour
     public static UIController instance;
 
     public Image healthSlider;
-    public Text healthText;
+    public Text healthText, coinText;
     public GameObject deathScreen;
 
     [SerializeField] Image fadeScreen;

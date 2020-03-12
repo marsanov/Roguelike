@@ -78,6 +78,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   moveSpeed: 2
+  shouldDropItems: 0
+  itemsToDrop:
+  - {fileID: 158923763652747602, guid: c35de699c4649144f9b1589c8cb30194, type: 3}
+  dropPercentChance: 40
   shouldShoot: 0
   bullet: {fileID: 7622934989392637038, guid: 8ec73207667d1ac42b4ed8a01a94a5a4, type: 3}
   firePoint: {fileID: 1997082771261666452}
@@ -91,6 +95,8 @@ MonoBehaviour:
   shouldWander: 1
   wanderLength: 4
   pauseLength: 1.5
+  shouldPatrol: 0
+  patrolPoints: []
   hitEffect: {fileID: 4095745186291809460, guid: 61aafdd4bd1dbdc4f88a8d4e2c30467c,
     type: 3}
   deathSplatters:

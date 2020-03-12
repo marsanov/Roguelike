@@ -8,6 +8,11 @@ public class EnemyController : MonoBehaviour
     public int health = 150;
     [SerializeField] float moveSpeed = 5f;
 
+    [Header("Drop")]
+    [SerializeField] bool shouldDropItems;
+    [SerializeField] GameObject[] itemsToDrop;
+    [SerializeField] float dropPercentChance;
+
     [Header("Shooting")]
     [SerializeField] bool shouldShoot;
     [SerializeField] GameObject bullet;
@@ -130,7 +135,7 @@ public class EnemyController : MonoBehaviour
                 if (Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < .2f)
                 {
                     currentPatrolPoint++;
-                    if(currentPatrolPoint >= patrolPoints.Length)
+                    if (currentPatrolPoint >= patrolPoints.Length)
                     {
                         currentPatrolPoint = 0;
                     }
@@ -168,11 +173,26 @@ public class EnemyController : MonoBehaviour
         Instantiate(hitEffect, transform.position, transform.rotation);
         if (health <= 0)
         {
+            DropItems();
             Destroy(gameObject);
             AudioManager.instance.PlaySFX(dieSoundIndex);
             int selectedSplatter = Random.Range(0, deathSplatters.Length - 1);
             int rotation = Random.Range(0, 4);
             Instantiate(deathSplatters[selectedSplatter], transform.position, Quaternion.Euler(0, 0, rotation * 90f));
+        }
+    }
+
+    void DropItems()
+    {
+        //Дроп лута
+        if (shouldDropItems)
+        {
+            float dropChance = Random.Range(0f, 100f);
+            if (dropChance < dropPercentChance)
+            {
+                int randomItem = Random.Range(0, itemsToDrop.Length);
+                Instantiate(itemsToDrop[randomItem], transform.position, transform.rotation);
+            }
         }
     }
 }

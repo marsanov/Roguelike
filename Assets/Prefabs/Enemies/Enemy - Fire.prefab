@@ -270,7 +270,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   moveSpeed: 5
+  shouldDropItems: 1
+  itemsToDrop:
+  - {fileID: 158923763652747602, guid: c35de699c4649144f9b1589c8cb30194, type: 3}
+  dropPercentChance: 40
+  shouldShoot: 1
+  bullet: {fileID: 7622934989392637038, guid: 8ec73207667d1ac42b4ed8a01a94a5a4, type: 3}
+  firePoint: {fileID: 4670861652272992434}
+  fireRate: 1.5
+  shootRange: 10
+  shootSoundIndex: 13
+  shouldChasePlayer: 0
   chaseDistance: 10
+  shouldRunAway: 0
+  rangeToChasePlayer: 0
+  shouldWander: 0
+  wanderLength: 0
+  pauseLength: 0
+  shouldPatrol: 0
+  patrolPoints: []
+  hitEffect: {fileID: 4095745186291809460, guid: 61aafdd4bd1dbdc4f88a8d4e2c30467c,
+    type: 3}
   deathSplatters:
   - {fileID: 754423321481426484, guid: f5b7181a9ffad0b4ca25e8c544097507, type: 3}
   - {fileID: 2620893475206085006, guid: 16a5a0965424fad4388d363d865b422d, type: 3}
@@ -278,14 +298,6 @@ MonoBehaviour:
   - {fileID: 7366906963387372781, guid: 4b6ae05bd6403fc489e3b4e7e337cdd9, type: 3}
   dieSoundIndex: 1
   hurtSoundIndex: 2
-  hitEffect: {fileID: 4095745186291809460, guid: 61aafdd4bd1dbdc4f88a8d4e2c30467c,
-    type: 3}
-  shouldShoot: 1
-  bullet: {fileID: 7622934989392637038, guid: 8ec73207667d1ac42b4ed8a01a94a5a4, type: 3}
-  firePoint: {fileID: 4670861652272992434}
-  fireRate: 1.5
-  shootRange: 10
-  shootSoundIndex: 13
   bodySprite: {fileID: 4901787572969503539}
 --- !u!50 &8387738609543924913
 Rigidbody2D:
