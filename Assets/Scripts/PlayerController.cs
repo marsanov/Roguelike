@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
             Vector3 mousePosition = Input.mousePosition;
             Vector3 screenPoint = camera.WorldToScreenPoint(transform.localPosition);
 
+            /*
             if (mousePosition.x < screenPoint.x)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = Vector3.one;
                 gunArm.localScale = Vector3.one;
             }
+            */
 
             //Поворот оружия
             Vector2 offset = new Vector2(mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
