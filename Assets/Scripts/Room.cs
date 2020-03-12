@@ -18,8 +18,7 @@ public class Room : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            CameraController.instance.ChangeTarget(gameObject.transform);
-
+            //CameraController.instance.ChangeTarget(gameObject.transform);
 
             if (closeWhenEntered)
             {
