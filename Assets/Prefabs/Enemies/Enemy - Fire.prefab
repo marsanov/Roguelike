@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8387738609543924926
 Transform:
   m_ObjectHideFlags: 0
@@ -274,21 +274,24 @@ MonoBehaviour:
   itemsToDrop:
   - {fileID: 158923763652747602, guid: c35de699c4649144f9b1589c8cb30194, type: 3}
   dropPercentChance: 40
-  shouldShoot: 1
+  shouldShoot: 0
   bullet: {fileID: 7622934989392637038, guid: 8ec73207667d1ac42b4ed8a01a94a5a4, type: 3}
   firePoint: {fileID: 4670861652272992434}
   fireRate: 1.5
   shootRange: 10
   shootSoundIndex: 13
-  shouldChasePlayer: 0
+  shouldChasePlayer: 1
   chaseDistance: 10
   shouldRunAway: 0
   rangeToChasePlayer: 0
   shouldWander: 0
   wanderLength: 0
   pauseLength: 0
-  shouldPatrol: 0
-  patrolPoints: []
+  shouldPatrol: 1
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   hitEffect: {fileID: 4095745186291809460, guid: 61aafdd4bd1dbdc4f88a8d4e2c30467c,
     type: 3}
   deathSplatters:

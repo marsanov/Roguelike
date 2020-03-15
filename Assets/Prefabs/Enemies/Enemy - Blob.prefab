@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3387287516549916824
 Transform:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   fireRate: 1.5
   shootRange: 10
   shootSoundIndex: 13
-  shouldChasePlayer: 0
+  shouldChasePlayer: 1
   chaseDistance: 5
   shouldRunAway: 0
   rangeToChasePlayer: 0

@@ -99,7 +99,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1913602139
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: -1
   m_Sprite: {fileID: -5437406128460186720, guid: 63645ed38971cf14eb78c9c5bd2b6819,
     type: 3}
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5722054037840157312
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1913602139
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: -5320878005819174996, guid: 63645ed38971cf14eb78c9c5bd2b6819,
     type: 3}
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5722054038230917628
@@ -262,7 +262,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1913602139
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: -1
   m_Sprite: {fileID: -2028249665790844350, guid: 63645ed38971cf14eb78c9c5bd2b6819,
     type: 3}
@@ -273,7 +273,7 @@ SpriteRenderer:
   m_Size: {x: 0.15625, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5722054038579826460
@@ -343,7 +343,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1913602139
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 1629359593768063575, guid: 63645ed38971cf14eb78c9c5bd2b6819,
     type: 3}
@@ -354,7 +354,7 @@ SpriteRenderer:
   m_Size: {x: 0.875, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5722054038741293314
@@ -445,7 +445,7 @@ MonoBehaviour:
   dashSpeed: 15
   dashLength: 0.3
   dashCooldown: 1
-  dashInvincibility: 1
+  dashInvincibility: 0.3
   dashImpact: {fileID: 2217634745412854065}
   dashSoundIndex: 0
   timeBetweenShots: 0.2

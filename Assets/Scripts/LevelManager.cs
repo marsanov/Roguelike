@@ -14,12 +14,12 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        coinTextRefresh();
     }
 
     private void Start()
     {
         Time.timeScale = 1f;
+        coinTextRefresh();
     }
     private void Update()
     {
