@@ -77,12 +77,12 @@ public class LevelGenerator : MonoBehaviour
 
     private void Update()
     {
-        /*
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        */
+        
     }
 
     public void MoveGenerationPoint()

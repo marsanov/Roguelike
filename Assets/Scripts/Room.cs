@@ -6,12 +6,13 @@ public class Room : MonoBehaviour
 {
     public bool closeWhenEntered;
     [SerializeField] GameObject[] doors;
+    [SerializeField] GameObject mapLayout;
 
     [HideInInspector] public bool roomActive;
 
     private void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,6 +30,8 @@ public class Room : MonoBehaviour
             }
 
             roomActive = true;
+            if (mapLayout != null)
+                mapLayout.SetActive(true);
         }
     }
 
