@@ -6,7 +6,7 @@ public class Breakable : MonoBehaviour
 {
     [SerializeField] int breackSound;
     [SerializeField] GameObject[] brokenPieces;
-    [SerializeField] int maxPieces = 3;
+    [SerializeField] int minPieces = 1, maxPieces = 3;
     [SerializeField] bool shouldDropItems;
     [SerializeField] GameObject[] itemsToDrop;
     [SerializeField] float dropPercentChance;
@@ -41,7 +41,7 @@ public class Breakable : MonoBehaviour
     private void Smash()
     {
         //Дроп кусочков боксов
-        int piecesToDrop = Random.Range(1, maxPieces);
+        int piecesToDrop = Random.Range(minPieces, maxPieces);
         for (int i = 0; i < piecesToDrop; i++)
         {
             int randomPiece = Random.Range(0, brokenPieces.Length);
