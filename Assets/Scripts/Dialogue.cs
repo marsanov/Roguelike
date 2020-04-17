@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] string[] dialogueReplics;
     [SerializeField] GameObject interactButtonPlaceholder, dialogueScreen;
     [SerializeField] Text dialogueText;
+    [SerializeField] bool shouldBeginNewLevel;
 
     bool nearPlayer, interactWithPlayer;
     int currentDialogueTextIndex = -1;
@@ -28,6 +29,11 @@ public class Dialogue : MonoBehaviour
             if (currentDialogueTextIndex >= dialogueReplics.Length)
             {
                 EndDialogue();
+
+                if(shouldBeginNewLevel)
+                {
+                    LevelManager.instance.StartCoroutine("LevelEnd");
+                }
             }
         }
 

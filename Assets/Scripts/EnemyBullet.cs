@@ -10,8 +10,10 @@ public class EnemyBullet : MonoBehaviour
 
     private void Start()
     {
-        direction = PlayerController.instance.transform.position - transform.position;
-        direction.Normalize();
+        // direction = PlayerController.instance.transform.position - transform.position;
+        // direction.Normalize();
+
+        direction = transform.right;
     }
 
     private void Update()

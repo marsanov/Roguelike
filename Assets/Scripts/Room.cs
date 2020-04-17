@@ -21,13 +21,13 @@ public class Room : MonoBehaviour
         {
             //CameraController.instance.ChangeTarget(gameObject.transform);
 
-            if (closeWhenEntered)
-            {
-                foreach (GameObject door in doors)
-                {
-                    door.SetActive(true);
-                }
-            }
+            // if (closeWhenEntered)
+            // {
+            //     foreach (GameObject door in doors)
+            //     {
+            //         door.SetActive(true);
+            //     }
+            // }
 
             roomActive = true;
             if (mapLayout != null)
@@ -45,10 +45,10 @@ public class Room : MonoBehaviour
 
     public void OpenDoors()
     {
-        foreach (GameObject door in doors)
-        {
-            door.SetActive(false);
-            closeWhenEntered = false;
-        }
+        // foreach (GameObject door in doors)
+        // {
+        //     door.SetActive(false);
+        //     closeWhenEntered = false;
+        // }
     }
 }

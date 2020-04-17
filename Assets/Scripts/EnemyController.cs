@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour
     [Header("Agro")]
     [SerializeField] bool shouldChasePlayer;
     [SerializeField] float chaseDistance = 7f;
+    bool inCombat;
 
     [Header("Run away")]
     [SerializeField] bool shouldRunAway;
@@ -80,6 +81,9 @@ public class EnemyController : MonoBehaviour
     {
         if (shouldShoot && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < shootRange)
         {
+            //Поворот за игроком
+            LookAt(PlayerController.instance.transform);
+
             fireCounter -= Time.deltaTime;
             if (fireCounter <= 0)
             {
@@ -90,14 +94,22 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void LookAt(Transform target)
+    {
+        Vector2 rotateDirection = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
+        var angle = Mathf.Atan2(rotateDirection.y, rotateDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
     private void Move()
     {
         moveDirection = Vector3.zero;
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
 
-        if (distanceToPlayer < chaseDistance && shouldChasePlayer)
+        if (distanceToPlayer < chaseDistance && shouldChasePlayer && distanceToPlayer > 2f)
         {
             moveDirection = PlayerController.instance.transform.position - transform.position;
+            LookAt(PlayerController.instance.transform);
         }
         else
         {
@@ -140,6 +152,8 @@ public class EnemyController : MonoBehaviour
                         currentPatrolPoint = 0;
                     }
                 }
+
+                LookAt(patrolPoints[currentPatrolPoint]);
             }
         }
         if (shouldRunAway && distanceToPlayer < rangeToChasePlayer)
