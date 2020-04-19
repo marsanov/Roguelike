@@ -223,6 +223,11 @@ PrefabInstance:
       propertyPath: nextLevel
       value: Victory
       objectReference: {fileID: 0}
+    - target: {fileID: 2153999725986062047, guid: 99d8a5c25875b9a42968e98f340a5b1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2153999726373080726, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -247,6 +252,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Core
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153999727229827469, guid: 99d8a5c25875b9a42968e98f340a5b1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2153999727229827506, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
@@ -304,6 +314,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2153999727433217171, guid: 99d8a5c25875b9a42968e98f340a5b1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2522840924884901044, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -412,7 +427,7 @@ PrefabInstance:
     - target: {fileID: 7377329636353962998, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d8a5c25875b9a42968e98f340a5b1b, type: 3}
