@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 0.625, y: 0.3125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &7846084572737127000
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b33164e4413f645a78bce9aace8c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 50
+  moveSpeed: 2500
   bulletDamage: 10
   impactEffect: {fileID: 5065082812655064028, guid: 4141920c6cd61774b96f790fc1a26e52,
     type: 3}

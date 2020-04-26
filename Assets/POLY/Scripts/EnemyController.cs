@@ -6,7 +6,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
     [Header ("Stats")]
     public int health = 150;
-    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float combatSpeed;
+    float moveSpeed;
 
     [Header ("Drop")]
     [SerializeField] bool shouldDropItems;
@@ -39,6 +40,7 @@ public class EnemyController : MonoBehaviour {
 
     [Header ("Patrolling")]
     [SerializeField] bool shouldPatrol;
+    [SerializeField] float patrolSpeed;
     [SerializeField] Transform[] patrolPoints;
     int currentPatrolPoint = 0;
 
@@ -66,6 +68,8 @@ public class EnemyController : MonoBehaviour {
         pathTarget = this.transform;
 
         InvokeRepeating ("UpdatePath", 0f, .5f);
+
+        if(shouldPatrol) moveSpeed = patrolSpeed;
     }
 
     void Update () {
@@ -95,14 +99,13 @@ public class EnemyController : MonoBehaviour {
 
     bool isPlayerVisible () {
         LayerMask checkLayer = LayerMask.GetMask ("Obstacle");
-        RaycastHit2D hit = Physics2D.Raycast (transform.position, PlayerController.instance.transform.position-transform.position, shootRange, checkLayer);
-        Debug.DrawRay (transform.position, PlayerController.instance.transform.position-transform.position, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast (transform.position, PlayerController.instance.transform.position - transform.position, shootRange, checkLayer);
+        Debug.DrawRay (transform.position, PlayerController.instance.transform.position - transform.position, Color.red);
         if (hit.collider == null) {
             return true;
         } else {
             return false;
         }
-
     }
 
     private void LookAt (Transform target) {
@@ -128,8 +131,15 @@ public class EnemyController : MonoBehaviour {
         float distanceToPlayer = Vector3.Distance (transform.position, PlayerController.instance.transform.position);
 
         if (distanceToPlayer < chaseDistance && shouldChasePlayer && distanceToPlayer > 2f) {
-            pathTarget = PlayerController.instance.transform;
-            LookAt (PlayerController.instance.transform);
+
+            if (!inCombat && isPlayerVisible ()) {
+                inCombat = true;
+                moveSpeed = combatSpeed;
+            }
+            if (inCombat) {
+                pathTarget = PlayerController.instance.transform;
+                LookAt (PlayerController.instance.transform);
+            }
         } else if (shouldPatrol) {
             if (Vector3.Distance (transform.position, patrolPoints[currentPatrolPoint].position) < .2f) {
                 currentPatrolPoint++;
@@ -139,17 +149,22 @@ public class EnemyController : MonoBehaviour {
             }
 
             pathTarget = patrolPoints[currentPatrolPoint];
-            LookAt (patrolPoints[currentPatrolPoint]);
         }
 
         if (currentPath == null) return;
         if (currentPathWaypoint >= currentPath.vectorPath.Count - 1) return;
         if (Vector3.Distance (transform.position, currentPath.vectorPath[currentPathWaypoint]) <= nextWaypointDistance) currentPathWaypoint++;
 
+        //Look forward to path
+        //Transform targetTransform = currentPath.vectorPath[currentPathWaypoint].normalized * 1f;
+        Vector2 rotateDirection = new Vector2 (currentPath.vectorPath[currentPathWaypoint].x - transform.position.x, currentPath.vectorPath[currentPathWaypoint].y - transform.position.y);
+        var angle = Mathf.Atan2 (rotateDirection.y, rotateDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+
         moveDirection = currentPath.vectorPath[currentPathWaypoint] - transform.position;
         moveDirection.Normalize ();
 
-        rigidbody.velocity = moveDirection * moveSpeed * Time.deltaTime;
+        rigidbody.velocity = moveDirection * moveSpeed;
 
         if (moveDirection != Vector3.zero) {
             animator.SetBool ("isMoving", true);
@@ -180,6 +195,17 @@ public class EnemyController : MonoBehaviour {
                 int randomItem = Random.Range (0, itemsToDrop.Length);
                 Instantiate (itemsToDrop[randomItem], transform.position, transform.rotation);
             }
+        }
+    }
+
+    private void OnDrawGizmos () {
+        if (shouldShoot) {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere (transform.position, shootRange);
+        }
+        if (shouldChasePlayer) {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere (transform.position, chaseDistance);
         }
     }
 }
