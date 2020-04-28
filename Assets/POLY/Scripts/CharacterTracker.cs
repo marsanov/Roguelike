@@ -8,7 +8,7 @@ public class CharacterTracker : MonoBehaviour, ISaveable {
     public int currentHealth, maxHealth, currentCoins;
 
     private void Awake () {
-        instance = this;
+        if(CharacterTracker.instance == null) instance = this;
     }
 
     private void Start () {

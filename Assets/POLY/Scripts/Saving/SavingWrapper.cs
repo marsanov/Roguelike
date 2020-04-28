@@ -8,7 +8,7 @@ public class SavingWrapper : MonoBehaviour {
     public static SavingWrapper instance;
 
     private void Awake () {
-        instance = this;
+        if(SavingWrapper.instance == null) instance = this;
     }
 
     // IEnumerator Start(){

@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomCenter : MonoBehaviour
-{
-    [SerializeField] bool openWhenEnemiesCleared;
-    [SerializeField] List<GameObject> enemies = new List<GameObject>();
+public class RoomCenter : MonoBehaviour {
+    // [SerializeField] bool openWhenEnemiesCleared;
+    // [SerializeField] List<GameObject> enemies = new List<GameObject> ();
+    [SerializeField] AstarPath astarPath;
 
-    public Room theRoom;
+    [HideInInspector] public Room theRoom;
 
     // Start is called before the first frame update
-    void Start()
-    {
-
+    void Start () {
+        if (astarPath != null) {
+            astarPath.data.gridGraph.center = transform.position;
+            astarPath.Scan ();
+        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
         // if (enemies.Count > 0 && theRoom.roomActive && openWhenEnemiesCleared)
         // {
         //     for (int i = 0; i < enemies.Count; i++)

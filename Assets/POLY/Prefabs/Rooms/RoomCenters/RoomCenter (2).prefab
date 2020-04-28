@@ -79,10 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e53adc085e5ab46948bb724d09cb5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openWhenEnemiesCleared: 1
-  enemies:
-  - {fileID: 0}
-  - {fileID: 0}
+  astarPath: {fileID: 4343075417818723992}
   theRoom: {fileID: 0}
 --- !u!50 &2345351374391886839
 Rigidbody2D:
@@ -6614,7 +6611,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9049775926650352848}
-  - component: {fileID: 9049775926650352863}
+  - component: {fileID: 263687008166094689}
+  - component: {fileID: 4343075417818723992}
   m_Layer: 0
   m_Name: PathfindingCenter
   m_TagString: Untagged
@@ -6636,7 +6634,35 @@ Transform:
   m_Father: {fileID: 2345351374391886837}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9049775926650352863
+--- !u!114 &263687008166094689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9049775926650352849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &4343075417818723992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6650,7 +6676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIexBxBWzYAIAAAQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMziVjOziG3lpCSA/5mNBOLr4IaY01yJJHkgMkw3/vSjbYdU+It/t23z6t/EWEsjUwp83aCP6kOZDvE+LP5NukDz7Cke602ohPuOS8C+5Kn0RDzht1QiMee5rVFTgj2A+1kz45QrBRotCmWvEdLLV1FuGCSgsYMtp5tkLoa0KO+DNdeMoJT0nmT594WkSTMx4ZKAdmkJreZHdxNk9W0yjrSBdKy2gUk7SqgXv5PTGZd9nxLKQpHKzLiG5S30lLKWyni7hTHebe1CUY8INzQXHMoCUOhBLErnS+9JD9UhQWXKfK0NO9MOhXW5b81K2JFbX7VtoHlY1vlNwl8axV1tZ9+i9lGodwYXT1eGkdR76NKwXbv9ETo9YNjB7C9wP1waQDlXu6lfBegnrWa6MbxTHoTOOpjYXkvv97nW5ZAtv3eCt1BDZ173o0uiI/wzkYcFxKUW2D+7MW2EgdPA/LAAbv5xcKDqtiuxKIehV/LPymu+FOdYEHYazDUDel8vK2ujE+layCZ36axi21URDgTnQNikp3esUybnyLo9ig7SjyQP3r6Zp3scujGFEC3OdH0Sj0qg/Xy7KlPjyBLV8aJ4WCXrQPPKNPS61Uu2RDTy60TWMKyga0XSP4v6tFbhnbLmg6n2XZHYNFMk1nabRNiyylCz5P2S0JuycUzknlayu0swdvTfXFFe7Z5aMyWRtah4Xnhh7W4rPSA8uFKvSGGQD10la4CgeDTfBt8hUXaNAGnBMq3Df5yonUbA88vxbKw6SrozM076vkpBYf2nkkJ8vwFcnJmZz/AlBLAwQUAAAICAAAGCHs/5fu5G0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNVRUEovSizIKAaKGII4pZkpIHa0knFycpJloqmFibm5WXKqpZGuqYmpQZJpmrlpomWKhWmysVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAGCHsQcQVs2ACAAAEBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAGCHs/5fu5G0AAAB4AAAACQAkAAAAAAAAAAAAAACtAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGUDAAAAAA==
+    dataString: UEsDBBQAAAgIAAAYIewUnb1QfAIAACEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWxjY2ht5QQ0kM+JqSTiy9CWmMNsuSR5ADJ8N8ryQK79IR4u/v09u3K34gJ3QAxUq0Vo0+SAvo5Qnf0EwsCFP0Y9QmPcMQ7KTbsCy55H4yayiVhn/OGDZMWj12ZljUYxcid2HGXHFmwFayUql7RHSylNtrCJeYabEhJ46qFhb5H6Gh/xgtXcrKnJHenL3taRKOzPRIQBtQgNZvkszifJ6txlIei8WKSTWd5Og2YK48neZRNo2Sersbx1FO1gnBcN0BdXz1jMg80cerThO04ZESTzEmQnDMdBCNzarwhm6YCBc4RyrDt34uMfUEFbFcZRz2sfilLDSbYo/DpnilrZEeLfsnO3RrrfSftE/PWXZTMkjjtlHW8T/+ljGMfLpWsHy9Xx5G7xlSM7N/wiWBtBhMYwvcD9d6kA+Z7vOXwUYF4lmslW0Ft0KjWlbYakvv+77W7ZQVk3+Od1BuwbXrXLwO/jNv1cPYGHJec1VvvftoBGy69535LQNn5/LaC/Q7pQGFRp+KPhne8Gy5bCDwwpY0NhS6Fk7eVrXKpaOU9c920ZimVAA8H0Q0IzM3p1dKY2ynexAbX3kQesHtW4fIQu7yWmxIP9/lRdBN6lYfrsHQlD0+gq5fWcCagF+0Cz9anpRSiW7KhJ5eyTatKTAZlu5bRf1cLTQnZLnA2T/N8RmCRjLM0i7ZZmWd4QecZmSK/e0zYPjF/7YQGe+zURE8u7J45Rvf1Ga0VbvzCU4UPa/ZVy4HlTJRyQxSAeOkYrsJB2Uvs26QryqxBGzCGCT9v9F0gLskeaHElKnynq6NRuOhZCtSwT2kcUqCl/7wU6IzOfwFQSwMEFAAACAgAABgh7P+X7uRtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTVUVBKL0osyCgGihiCOKWZKSB2tJJxcnKSZaKphYm5uVlyqqWRrqmJqUGSaZq5aaJlioVpsrFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAABgh7BSdvVB8AgAAIQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7P+X7uRtAAAAeAAAAAkAJAAAAAAAAAAAAAAAyQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACBAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -6665,7 +6691,7 @@ MonoBehaviour:
   unwalkableNodeDebugSize: 0.3
   logPathResults: 1
   maxNearestNodeDistance: 100
-  scanOnStartup: 1
+  scanOnStartup: 0
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
@@ -10130,15 +10156,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab9feb411b25b044ebc21ee172950c34, type: 3}
---- !u!4 &5175558176256765915 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6094114584225846950, guid: ab9feb411b25b044ebc21ee172950c34,
-    type: 3}
-  m_PrefabInstance: {fileID: 1387638994898532733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5175558175386494977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6094114585364648316, guid: ab9feb411b25b044ebc21ee172950c34,
+    type: 3}
+  m_PrefabInstance: {fileID: 1387638994898532733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5175558176256765915 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6094114584225846950, guid: ab9feb411b25b044ebc21ee172950c34,
     type: 3}
   m_PrefabInstance: {fileID: 1387638994898532733}
   m_PrefabAsset: {fileID: 0}

@@ -7,6 +7,7 @@ namespace Pathfinding {
 
 	[CustomGraphEditor(typeof(GridGraph), "Grid Graph")]
 	public class GridGraphEditor : GraphEditor {
+
 		[JsonMember]
 		public bool locked = true;
 
