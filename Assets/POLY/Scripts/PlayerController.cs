@@ -11,16 +11,16 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] float dashSpeed, dashLength, dashCooldown, dashInvincibility;
     [SerializeField] GameObject dashImpact;
     [SerializeField] int dashSoundIndex;
-    [SerializeField] float timeBetweenShots = 0.2f;
+    // [SerializeField] float timeBetweenShots = 0.2f;
     [SerializeField] Transform gunArm;
-    [SerializeField] GameObject bulletToFire;
-    [SerializeField] Transform firePoint;
+    // [SerializeField] GameObject bulletToFire;
+    // [SerializeField] Transform firePoint;
 
     Rigidbody2D rigidbody;
     Vector2 moveInput = new Vector2 ();
     Camera camera;
     Animator animator;
-    float shotCounter = 0;
+    // float shotCounter = 0;
     float activeMoveSpeed;
     float dashCooldownCounter;
 
@@ -69,14 +69,14 @@ public class PlayerController : MonoBehaviour {
             gunArm.rotation = Quaternion.Euler (new Vector3 (0, 0, angle));
 
             //Стрельба
-            if (Input.GetMouseButton (0)) {
-                shotCounter -= Time.deltaTime;
+            // if (Input.GetMouseButton (0)) {
+            //     shotCounter -= Time.deltaTime;
 
-                if (shotCounter <= 0) {
-                    Instantiate (bulletToFire, firePoint.position, firePoint.rotation);
-                    shotCounter = timeBetweenShots;
-                }
-            }
+            //     if (shotCounter <= 0) {
+            //         Instantiate (bulletToFire, firePoint.position, firePoint.rotation);
+            //         shotCounter = timeBetweenShots;
+            //     }
+            // }
 
             //Dash
             if (Input.GetKeyDown (KeyCode.LeftShift)) {
