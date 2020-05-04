@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour {
+    public string weaponName;
+    public Sprite gunUI;
     [SerializeField] float timeBetweenShots = 0.2f;
     [SerializeField] GameObject bulletToFire;
     [SerializeField] Transform firePoint;

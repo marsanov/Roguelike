@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     public static PlayerController instance;
     [HideInInspector] public bool canMove;
     public SpriteRenderer playerBodySR;
+    public List<Gun> availableGuns = new List<Gun> ();
     [HideInInspector] public float dashCounter;
     [SerializeField] float moveSpeed;
     [SerializeField] float dashSpeed, dashLength, dashCooldown, dashInvincibility;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour {
     // float shotCounter = 0;
     float activeMoveSpeed;
     float dashCooldownCounter;
+    private int currentGun;
 
     private void Awake () {
         instance = this;
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator> ();
         activeMoveSpeed = moveSpeed;
         canMove = true;
+        UiCurrentGunUpdate ();
     }
 
     // Update is called once per frame
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour {
             moveInput.Normalize ();
 
             rigidbody.velocity = moveInput * activeMoveSpeed;
-            
+
             Vector3 mousePosition = Input.mousePosition;
             Vector3 screenPoint = camera.WorldToScreenPoint (transform.localPosition);
 
@@ -77,6 +80,21 @@ public class PlayerController : MonoBehaviour {
             //         shotCounter = timeBetweenShots;
             //     }
             // }
+
+            if (Input.GetKeyDown (KeyCode.Tab)) {
+                if (availableGuns.Count > 0) {
+                    currentGun++;
+
+                    if (currentGun >= availableGuns.Count) {
+                        currentGun = 0;
+                    }
+
+                    SwitchGun (false);
+                } else {
+                    Debug.Log ("Player has no guns!");
+                }
+            }
+            
 
             //Dash
             if (Input.GetKeyDown (KeyCode.LeftShift)) {
@@ -110,5 +128,30 @@ public class PlayerController : MonoBehaviour {
             rigidbody.velocity = Vector3.zero;
             animator.SetBool ("isMoving", false);
         }
+    }
+
+    public void SwitchGun (bool shouldUpdateGunNumber = true) {
+        if (shouldUpdateGunNumber && availableGuns.Count > 0) {
+            currentGun++;
+
+            if (currentGun >= availableGuns.Count) {
+                currentGun = 0;
+            }
+        } else {
+            Debug.Log ("Player has no guns!");
+        }
+
+        foreach (Gun theGun in availableGuns) {
+            theGun.gameObject.SetActive (false);
+        }
+        availableGuns[currentGun].gameObject.SetActive (true);
+
+        UiCurrentGunUpdate ();
+    }
+
+    private void UiCurrentGunUpdate () {
+        UIController.instance.currentGun.sprite = availableGuns[currentGun].GetComponent<SpriteRenderer> ().sprite;
+        UIController.instance.currentGun.SetNativeSize();
+        UIController.instance.gunText.text = availableGuns[currentGun].weaponName;
     }
 }

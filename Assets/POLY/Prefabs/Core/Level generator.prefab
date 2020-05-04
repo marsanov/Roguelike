@@ -87,13 +87,20 @@ MonoBehaviour:
       type: 3}
     fourway: {fileID: 4616449005032302301, guid: 207d2178e2f8508459a5272877a789c9,
       type: 3}
-  centerStart: {fileID: 4257514913084188614, guid: 2e8db439ac1e0ff468a9982c6d380edf,
+  centerStart: {fileID: -7699238000188648972, guid: 2e8db439ac1e0ff468a9982c6d380edf,
     type: 3}
-  centerEnd: {fileID: 4991809806035338520, guid: 0a71fd14b00c52443a7be77c60aa7655,
+  centerEnd: {fileID: 878242560152153040, guid: 0a71fd14b00c52443a7be77c60aa7655,
     type: 3}
   potentialCenters:
-  - {fileID: 2953737892539719452, guid: d587ef9a5bef9c1489b2456bd92c95c0, type: 3}
+  - {fileID: 7084686500088046526, guid: d587ef9a5bef9c1489b2456bd92c95c0, type: 3}
   - {fileID: 2345351374391886838, guid: 8acc747f5368f0c46a3a49a534abbb73, type: 3}
+  - {fileID: 5459513590472542539, guid: 230e1ec66753e4c4bbb3fe1862736d4b, type: 3}
+  - {fileID: 4567012019112634981, guid: dca9bd84a7965804c8c817b0b0a067c6, type: 3}
+  - {fileID: 8002161882658716951, guid: 9acbd3179b8e2ab53a65d6e1d07f0686, type: 3}
+  - {fileID: 8142505614407792766, guid: e8800c344d88061be83fc03467f91c64, type: 3}
+  - {fileID: 6797256196302076493, guid: 4d7d592c1b6080a28a420f1962e6b16c, type: 3}
+  - {fileID: 9148137930734499759, guid: 8875363b89a0ff047bfdc144000c0d9e, type: 3}
+  - {fileID: 8961953608952571056, guid: 571d05ae4e3294c4daf2650c462cf93f, type: 3}
 --- !u!1 &8900521756402668764
 GameObject:
   m_ObjectHideFlags: 0

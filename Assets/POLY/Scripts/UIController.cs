@@ -20,6 +20,9 @@ public class UIController : MonoBehaviour
     [SerializeField] string mainMenuScene;
     public GameObject pauseMenu;
 
+    public Image currentGun;
+    public Text gunText;
+
     private void Awake()
     {
         instance = this;
