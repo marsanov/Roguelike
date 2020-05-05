@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour {
     public string weaponName;
-    public Sprite gunUI;
+    public SpriteRenderer weaponSpriteRenderer;
+    public bool available;
     [SerializeField] float timeBetweenShots = 0.2f;
     [SerializeField] GameObject bulletToFire;
     [SerializeField] Transform firePoint;

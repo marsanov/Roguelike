@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void UiCurrentGunUpdate () {
-        UIController.instance.currentGun.sprite = availableGuns[currentGun].GetComponent<SpriteRenderer> ().sprite;
+        UIController.instance.currentGun.sprite = availableGuns[currentGun].weaponSpriteRenderer.sprite;
         UIController.instance.currentGun.SetNativeSize();
         UIController.instance.gunText.text = availableGuns[currentGun].weaponName;
     }

@@ -3,70 +3,66 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Dialogue : MonoBehaviour
-{
+public class Dialogue : MonoBehaviour {
     [SerializeField] string[] dialogueReplics;
     [SerializeField] GameObject interactButtonPlaceholder, dialogueScreen;
     [SerializeField] Text dialogueText;
     [SerializeField] bool shouldBeginNewLevel;
 
+    //Shop
+    [SerializeField] Shop shop;
+    [SerializeField] bool shouldOpenShop;
+
     bool nearPlayer, interactWithPlayer;
     int currentDialogueTextIndex = -1;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start () {
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && nearPlayer)
-        {
+    void Update () {
+        if (Input.GetKeyDown (KeyCode.E) && nearPlayer) {
             interactWithPlayer = true;
             currentDialogueTextIndex++;
-            if (currentDialogueTextIndex >= dialogueReplics.Length)
-            {
-                EndDialogue();
+            if (currentDialogueTextIndex >= dialogueReplics.Length) {
+                EndDialogue ();
 
-                if(shouldBeginNewLevel)
-                {
-                    LevelManager.instance.StartCoroutine("LevelEnd");
+                if (shouldOpenShop) {
+                    shop.EnableShop();
+                }
+
+                if (shouldBeginNewLevel) {
+                    LevelManager.instance.StartCoroutine ("LevelEnd");
                 }
             }
         }
 
-        if (nearPlayer && interactWithPlayer)
-        {
-            dialogueScreen.SetActive(true);
+        if (nearPlayer && interactWithPlayer) {
+            dialogueScreen.SetActive (true);
 
             dialogueText.text = dialogueReplics[currentDialogueTextIndex];
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            interactButtonPlaceholder.gameObject.SetActive(true);
+    private void OnTriggerEnter2D (Collider2D other) {
+        if (other.tag == "Player") {
+            interactButtonPlaceholder.gameObject.SetActive (true);
             nearPlayer = true;
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            EndDialogue();
+    private void OnTriggerExit2D (Collider2D other) {
+        if (other.tag == "Player") {
+            EndDialogue ();
         }
     }
 
-    private void EndDialogue()
-    {
-        interactButtonPlaceholder.gameObject.SetActive(false);
+    private void EndDialogue () {
+        interactButtonPlaceholder.gameObject.SetActive (false);
         nearPlayer = false;
         interactWithPlayer = false;
-        dialogueScreen.SetActive(false);
+        dialogueScreen.SetActive (false);
         currentDialogueTextIndex = -1;
     }
 }

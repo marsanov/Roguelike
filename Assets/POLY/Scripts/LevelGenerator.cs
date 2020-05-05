@@ -153,7 +153,7 @@ public class LevelGenerator : MonoBehaviour {
         //Diameter
         gridGraph.collision.diameter = 1.5f;
         //Setting obstacle layer mask
-        gridGraph.collision.mask = LayerMask.GetMask ("Obstacle") | LayerMask.GetMask ("IgnoreBullets");
+        gridGraph.collision.mask = LayerMask.GetMask ("Obstacle") |  LayerMask.GetMask ("IgnoreBullets");
 
         AstarPath.active.Scan ();
     }

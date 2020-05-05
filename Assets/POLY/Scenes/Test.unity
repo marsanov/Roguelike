@@ -128,18 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 784190096, guid: 99d8a5c25875b9a42968e98f340a5b1b, type: 3}
-      propertyPath: m_Name
-      value: SwitchGunButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 784190098, guid: 99d8a5c25875b9a42968e98f340a5b1b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 784190098, guid: 99d8a5c25875b9a42968e98f340a5b1b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2153999727229827469, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
       propertyPath: m_Name
@@ -200,10 +188,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7377329636353962985, guid: 99d8a5c25875b9a42968e98f340a5b1b,
+    - target: {fileID: 7377329636353962998, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
-      propertyPath: potentialCenters.Array.size
-      value: 8
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d8a5c25875b9a42968e98f340a5b1b, type: 3}
