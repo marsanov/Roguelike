@@ -35,7 +35,7 @@ public class EditorItemToBuy : Editor {
 
         if (itemToBuy.type == ItemType.weapon) {
             EditorGUILayout.PropertyField (weapon);
-            EditorGUILayout.PropertyField (playerWeapon);
+            // EditorGUILayout.PropertyField (playerWeapon);
             if (itemToBuy.buyButtonText == null) EditorGUILayout.PropertyField (buyButtonText);
         } else if (itemToBuy.type == ItemType.health) {
             itemToBuy.restoreHp = EditorGUILayout.IntField ("RestoreHP", itemToBuy.restoreHp);

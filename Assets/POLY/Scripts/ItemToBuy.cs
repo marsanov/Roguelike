@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Saving;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemToBuy : MonoBehaviour {
+public class ItemToBuy : MonoBehaviour, ISaveable {
     [SerializeField] int price;
     public Text priceText;
     public ItemType type;
 
     //Weapon
     public GameObject weapon;
-    public Transform playerWeapon;
     bool isBuyed;
     public Text buyButtonText;
 
@@ -18,33 +18,55 @@ public class ItemToBuy : MonoBehaviour {
     public int restoreHp;
 
     private void Start () {
-        if (isBuyed) {
-            BuyButtonTextChange ();
-        }
-
         priceText.text = price.ToString ();
     }
 
     public void OnBuy () {
         if (price <= LevelManager.instance.currentCoins) {
             if (type == ItemType.weapon && !isBuyed) {
-                weapon = Instantiate (weapon, playerWeapon.position, playerWeapon.rotation);
-                weapon.transform.parent = playerWeapon.transform;
-                PlayerController.instance.availableGuns.Add (weapon.GetComponent<Gun> ());
+                InstantiateWeapon ();
                 isBuyed = true;
-                weapon.SetActive (false);
                 BuyButtonTextChange ();
             } else if (type == ItemType.health) {
 
             }
             LevelManager.instance.currentCoins -= price;
-            Shop.instance.BalanceTextUpdate();
+            LevelManager.instance.coinTextRefresh ();
+            ShopController.instance.BalanceTextUpdate ();
+
+            SavingWrapper.instance.Save ();
         }
     }
 
+    private void InstantiateWeapon () {
+        Transform playerWeapon = PlayerController.instance.playerWeapon;
+        weapon = Instantiate (weapon, playerWeapon.position, playerWeapon.rotation);
+        weapon.transform.parent = playerWeapon.transform;
+        CharacterTracker.instance.availableGuns.Add (weapon);
+        weapon.SetActive (false);
+    }
+
     private void BuyButtonTextChange () {
-        buyButtonText.text = "Buyed ✔️";
-        buyButtonText.color = Color.green;
+        if (isBuyed) {
+            buyButtonText.text = "Buyed ✔️";
+            buyButtonText.color = Color.green;
+        } else {
+            buyButtonText.text = "Buy";
+            buyButtonText.color = Color.white;
+        }
+    }
+
+    public object CaptureState () {
+        return isBuyed;
+    }
+
+    public void RestoreState (object state) {
+        isBuyed = (bool) state;
+        if (isBuyed) {
+            BuyButtonTextChange ();
+            InstantiateWeapon ();
+        }
+        UIController.instance.CloseShop();
     }
 }
 

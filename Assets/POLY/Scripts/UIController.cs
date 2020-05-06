@@ -1,12 +1,11 @@
-﻿using System.Net.Mime;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class UIController : MonoBehaviour
-{
+public class UIController : MonoBehaviour {
     public static UIController instance;
 
     public Image healthSlider;
@@ -23,55 +22,62 @@ public class UIController : MonoBehaviour
     public Image currentGun;
     public Text gunText;
 
-    private void Awake()
-    {
-        instance = this;
+    private void Awake () {
+        if (UIController.instance == null) UIController.instance = this;
     }
 
-    private void Start()
-    {
+    IEnumerator ClosingShop (float waitTime) {
+        yield return new WaitForSeconds (waitTime);
+        CloseShop ();
+    }
+
+    private void Start () {
         fadeOut = true;
         fadeIn = false;
-        fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, 1f);
+        fadeScreen.color = new Color (fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, 1f);
+        
+        StartCoroutine (ClosingShop (0.2f));
     }
 
-    private void Update()
-    {
-        if (fadeOut)
-        {
-            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 0, fadeSpeed * Time.deltaTime));
+    private void Update () {
+        if (fadeOut) {
+            fadeScreen.color = new Color (fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards (fadeScreen.color.a, 0, fadeSpeed * Time.deltaTime));
             if (fadeScreen.color.a <= 0)
                 fadeOut = false;
         }
 
-        if (fadeIn)
-        {
-            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
+        if (fadeIn) {
+            fadeScreen.color = new Color (fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards (fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
             if (fadeScreen.color.a <= 0)
                 fadeOut = false;
         }
     }
 
-    public void StartFadeIn()
-    {
+    public void StartFadeIn () {
         fadeIn = true;
         fadeOut = false;
     }
 
-    public void StartNewGame()
-    {
+    public void StartNewGame () {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(newGameScene);
+        SceneManager.LoadScene (newGameScene);
     }
 
-    public void GoToMainMenu()
-    {
+    public void GoToMainMenu () {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(mainMenuScene);
+        SceneManager.LoadScene (mainMenuScene);
     }
 
-    public void Resume()
-    {
-        LevelManager.instance.PauseUnpause();
+    public void Resume () {
+        LevelManager.instance.PauseUnpause ();
+    }
+
+    public void OpenShop () {
+        ShopController.instance.shopUI.SetActive (true);
+        ShopController.instance.BalanceTextUpdate ();
+    }
+
+    public void CloseShop () {
+        ShopController.instance.shopUI.SetActive (false);
     }
 }

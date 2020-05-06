@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shop : MonoBehaviour {
-    public static Shop instance;
+public class ShopController : MonoBehaviour {
+    public static ShopController instance;
 
     [SerializeField] List<GameObject> shopCategories = new List<GameObject> ();
     [SerializeField] Text currentBalance;
+    public GameObject shopUI;
     int currentShopCategory;
 
     private void Awake () {
-        if (Shop.instance == null) Shop.instance = this;
+        if (ShopController.instance == null) ShopController.instance = this;
     }
 
     // Start is called before the first frame update
@@ -32,15 +33,6 @@ public class Shop : MonoBehaviour {
         }
 
         shopCategories[currentShopCategory].SetActive (true);
-    }
-
-    public void EnableShop () {
-        gameObject.SetActive(true);
-        BalanceTextUpdate();
-    }
-
-    public void DisableShop(){
-        gameObject.SetActive(false);
     }
 
     public void BalanceTextUpdate () {

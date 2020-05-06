@@ -6,9 +6,10 @@ using UnityEngine;
 public class CharacterTracker : MonoBehaviour, ISaveable {
     public static CharacterTracker instance;
     public int currentHealth, maxHealth, currentCoins;
+    public List<GameObject> availableGuns = new List<GameObject> ();
 
     private void Awake () {
-        if(CharacterTracker.instance == null) instance = this;
+        if (CharacterTracker.instance == null) instance = this;
     }
 
     private void Start () {
@@ -24,7 +25,7 @@ public class CharacterTracker : MonoBehaviour, ISaveable {
         data["coins"] = currentCoins;
         data["health"] = currentHealth;
         data["maxHealth"] = maxHealth;
-
+        
         return data;
     }
 

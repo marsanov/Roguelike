@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour {
         CharacterTracker.instance.currentHealth = PlayerHealthController.instance.currentHealth;
         CharacterTracker.instance.maxHealth = PlayerHealthController.instance.maxHealth;
 
-        SavingWrapper.instance.Save();
+        SavingWrapper.instance.Save ();
 
         SceneManager.LoadScene (nextLevel);
     }

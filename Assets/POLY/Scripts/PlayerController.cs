@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour {
     public static PlayerController instance;
     [HideInInspector] public bool canMove;
     public SpriteRenderer playerBodySR;
-    public List<Gun> availableGuns = new List<Gun> ();
+    //public List<Gun> availableGuns = new List<Gun> ();
+    public Transform playerWeapon;
     [HideInInspector] public float dashCounter;
     [SerializeField] float moveSpeed;
     [SerializeField] float dashSpeed, dashLength, dashCooldown, dashInvincibility;
@@ -82,19 +83,8 @@ public class PlayerController : MonoBehaviour {
             // }
 
             if (Input.GetKeyDown (KeyCode.Tab)) {
-                if (availableGuns.Count > 0) {
-                    currentGun++;
-
-                    if (currentGun >= availableGuns.Count) {
-                        currentGun = 0;
-                    }
-
-                    SwitchGun (false);
-                } else {
-                    Debug.Log ("Player has no guns!");
-                }
+                SwitchGun();
             }
-            
 
             //Dash
             if (Input.GetKeyDown (KeyCode.LeftShift)) {
@@ -131,27 +121,27 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void SwitchGun (bool shouldUpdateGunNumber = true) {
-        if (shouldUpdateGunNumber && availableGuns.Count > 0) {
+        if (shouldUpdateGunNumber && CharacterTracker.instance.availableGuns.Count > 0) {
             currentGun++;
 
-            if (currentGun >= availableGuns.Count) {
+            if (currentGun >= CharacterTracker.instance.availableGuns.Count) {
                 currentGun = 0;
             }
         } else {
             Debug.Log ("Player has no guns!");
         }
 
-        foreach (Gun theGun in availableGuns) {
+        foreach (GameObject theGun in CharacterTracker.instance.availableGuns) {
             theGun.gameObject.SetActive (false);
         }
-        availableGuns[currentGun].gameObject.SetActive (true);
+        CharacterTracker.instance.availableGuns[currentGun].gameObject.SetActive (true);
 
         UiCurrentGunUpdate ();
     }
 
     private void UiCurrentGunUpdate () {
-        UIController.instance.currentGun.sprite = availableGuns[currentGun].weaponSpriteRenderer.sprite;
-        UIController.instance.currentGun.SetNativeSize();
-        UIController.instance.gunText.text = availableGuns[currentGun].weaponName;
+        UIController.instance.currentGun.sprite = CharacterTracker.instance.availableGuns[currentGun].GetComponent<Gun> ().weaponSpriteRenderer.GetComponent<SpriteRenderer> ().sprite;
+        UIController.instance.currentGun.SetNativeSize ();
+        UIController.instance.gunText.text = CharacterTracker.instance.availableGuns[currentGun].GetComponent<Gun> ().weaponName;
     }
 }

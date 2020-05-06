@@ -138,6 +138,7 @@ MonoBehaviour:
   playerBodySR: {fileID: 5575882481424765754}
   availableGuns:
   - {fileID: 4773384468369318295}
+  playerWeapon: {fileID: 5575882482698094246}
   dashCounter: 0
   moveSpeed: 5
   dashSpeed: 15

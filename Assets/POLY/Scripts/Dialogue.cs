@@ -10,7 +10,7 @@ public class Dialogue : MonoBehaviour {
     [SerializeField] bool shouldBeginNewLevel;
 
     //Shop
-    [SerializeField] Shop shop;
+    [SerializeField] ShopController shop;
     [SerializeField] bool shouldOpenShop;
 
     bool nearPlayer, interactWithPlayer;
@@ -30,7 +30,7 @@ public class Dialogue : MonoBehaviour {
                 EndDialogue ();
 
                 if (shouldOpenShop) {
-                    shop.EnableShop();
+                    UIController.instance.OpenShop();
                 }
 
                 if (shouldBeginNewLevel) {

@@ -4295,15 +4295,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1136087771, guid: 99d8a5c25875b9a42968e98f340a5b1b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 740705028690059535, guid: 99d8a5c25875b9a42968e98f340a5b1b,
-        type: 3}
-      propertyPath: nextLevel
-      value: Test
-      objectReference: {fileID: 0}
     - target: {fileID: 2153999727229827469, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
       propertyPath: m_Name
@@ -5432,18 +5423,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 41272985}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &360006449 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1136087773, guid: 99d8a5c25875b9a42968e98f340a5b1b,
-    type: 3}
-  m_PrefabInstance: {fileID: 41272985}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360006447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec00a9171a86294a852d8dfb33900a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &420444508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10581,7 +10560,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shop
       value: 
-      objectReference: {fileID: 360006449}
+      objectReference: {fileID: 0}
     - target: {fileID: 7978945401117414803, guid: 816083480df4b72479a12285a67c0762,
         type: 3}
       propertyPath: m_LocalPosition.x
