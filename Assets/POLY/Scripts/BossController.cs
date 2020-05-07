@@ -130,7 +130,7 @@ public class BossController : MonoBehaviour {
     }
 
     void UpdatePath () {
-        seeker.StartPath (transform.position, pathTarget.position, OnPathComplete);
+//        seeker.StartPath (transform.position, pathTarget.position, OnPathComplete);
     }
 
 }

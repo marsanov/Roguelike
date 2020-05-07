@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour {
     [SerializeField] Image fadeScreen;
     public float fadeSpeed = 1f;
     public bool fadeIn, fadeOut;
+    [SerializeField] Image loadingScreen;
     [SerializeField] string newGameScene;
     [SerializeField] string mainMenuScene;
     public GameObject pauseMenu;
@@ -29,6 +30,7 @@ public class UIController : MonoBehaviour {
     IEnumerator ClosingShop (float waitTime) {
         yield return new WaitForSeconds (waitTime);
         CloseShop ();
+        loadingScreen.gameObject.SetActive(false);
     }
 
     private void Start () {

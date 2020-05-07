@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 4964129826617928914}
   - component: {fileID: 2308043139337419666}
   - component: {fileID: 4038268525116113214}
-  m_Layer: 15
+  m_Layer: 19
   m_Name: Room R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,9 +625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21435614b55d5fb48af5105aed3847ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeWhenEntered: 1
-  doors:
-  - {fileID: 0}
   mapLayout: {fileID: 8405459293548284769}
   roomActive: 0
 --- !u!61 &4038268525116113214
@@ -672,7 +669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2437601940159635991
 Transform:
   m_ObjectHideFlags: 0

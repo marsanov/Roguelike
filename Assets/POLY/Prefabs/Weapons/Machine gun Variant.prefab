@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
         type: 3}
       propertyPath: weaponName
-      value: "\u041F\u0443\u043B\u0435\u043C\u0451\u0442"
+      value: Machine Gun
       objectReference: {fileID: 0}
     - target: {fileID: 8075465274204476849, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
         type: 3}
