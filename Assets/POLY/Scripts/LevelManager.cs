@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour {
 
         SavingWrapper.instance.Save ();
 
+        UIController.instance.loadingScreen.gameObject.SetActive (true);
         SceneManager.LoadScene (nextLevel);
     }
 

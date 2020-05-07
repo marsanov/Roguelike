@@ -15,7 +15,7 @@ public class UIController : MonoBehaviour {
     [SerializeField] Image fadeScreen;
     public float fadeSpeed = 1f;
     public bool fadeIn, fadeOut;
-    [SerializeField] Image loadingScreen;
+    public Image loadingScreen;
     [SerializeField] string newGameScene;
     [SerializeField] string mainMenuScene;
     public GameObject pauseMenu;
@@ -62,11 +62,13 @@ public class UIController : MonoBehaviour {
 
     public void StartNewGame () {
         Time.timeScale = 1f;
+        loadingScreen.gameObject.SetActive (true);
         SceneManager.LoadScene (newGameScene);
     }
 
     public void GoToMainMenu () {
         Time.timeScale = 1f;
+        loadingScreen.gameObject.SetActive (true);
         SceneManager.LoadScene (mainMenuScene);
     }
 
@@ -75,14 +77,12 @@ public class UIController : MonoBehaviour {
     }
 
     public void OpenShop () {
-        Time.timeScale = 0f;
         LevelManager.instance.isPaused = true;
         ShopController.instance.shopUI.SetActive (true);
         ShopController.instance.BalanceTextUpdate ();
     }
 
     public void CloseShop () {
-        Time.timeScale = 1f;
         LevelManager.instance.isPaused = false;
         ShopController.instance.shopUI.SetActive (false);
     }
