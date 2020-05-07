@@ -23,27 +23,29 @@ public class Dialogue : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown (KeyCode.E) && nearPlayer) {
-            interactWithPlayer = true;
-            currentDialogueTextIndex++;
-            if (currentDialogueTextIndex >= dialogueReplics.Length) {
-                EndDialogue ();
-
-                if (shouldOpenShop) {
-                    UIController.instance.OpenShop();
-                }
-
-                if (shouldBeginNewLevel) {
-                    LevelManager.instance.StartCoroutine ("LevelEnd");
-                }
-            }
-        }
-
         if (nearPlayer && interactWithPlayer) {
             dialogueScreen.SetActive (true);
 
             dialogueText.text = dialogueReplics[currentDialogueTextIndex];
         }
+    }
+
+    public void Talk () {
+        // if (Input.GetKeyDown (KeyCode.E) && nearPlayer) {
+        interactWithPlayer = true;
+        currentDialogueTextIndex++;
+        if (currentDialogueTextIndex >= dialogueReplics.Length) {
+            EndDialogue ();
+
+            if (shouldOpenShop) {
+                UIController.instance.OpenShop ();
+            }
+
+            if (shouldBeginNewLevel) {
+                LevelManager.instance.StartCoroutine ("LevelEnd");
+            }
+        }
+        // }
     }
 
     private void OnTriggerEnter2D (Collider2D other) {

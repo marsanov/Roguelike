@@ -16,6 +16,7 @@ public class ItemToBuy : MonoBehaviour, ISaveable {
 
     //Health
     public int restoreHp;
+    [SerializeField] int healSoundIndex;
 
     private void Start () {
         priceText.text = price.ToString ();
@@ -28,7 +29,8 @@ public class ItemToBuy : MonoBehaviour, ISaveable {
                 isBuyed = true;
                 BuyButtonTextChange ();
             } else if (type == ItemType.health) {
-
+                PlayerHealthController.instance.HealPlayer (restoreHp);
+                AudioManager.instance.PlaySFX (healSoundIndex);
             }
             LevelManager.instance.currentCoins -= price;
             LevelManager.instance.coinTextRefresh ();
@@ -66,7 +68,7 @@ public class ItemToBuy : MonoBehaviour, ISaveable {
             BuyButtonTextChange ();
             InstantiateWeapon ();
         }
-        UIController.instance.CloseShop();
+        UIController.instance.CloseShop ();
     }
 }
 

@@ -5,21 +5,27 @@ using UnityEngine;
 public class EditorItemToBuy : Editor {
     //ItemType type;
     ItemToBuy itemToBuy;
+    private SerializedProperty priceText = null;
+
+    //Weapon
     private SerializedProperty weapon = null;
-    private SerializedProperty playerWeapon = null;
     private SerializedProperty buyButtonText = null;
     private SerializedProperty price = null;
-    private SerializedProperty priceText = null;
+
+    //Health
+    private SerializedProperty healSoundIndex = null;
 
     private void OnEnable () {
         itemToBuy = (ItemToBuy) target;
 
         //Weapon
         weapon = serializedObject.FindProperty ("weapon");
-        playerWeapon = serializedObject.FindProperty ("playerWeapon");
         buyButtonText = serializedObject.FindProperty ("buyButtonText");
         price = serializedObject.FindProperty ("price");
         priceText = serializedObject.FindProperty ("priceText");
+
+        //Hp
+        healSoundIndex = serializedObject.FindProperty ("healSoundIndex");
     }
 
     public override void OnInspectorGUI () // Переопределяем метод который рисует испектор
@@ -35,10 +41,10 @@ public class EditorItemToBuy : Editor {
 
         if (itemToBuy.type == ItemType.weapon) {
             EditorGUILayout.PropertyField (weapon);
-            // EditorGUILayout.PropertyField (playerWeapon);
             if (itemToBuy.buyButtonText == null) EditorGUILayout.PropertyField (buyButtonText);
         } else if (itemToBuy.type == ItemType.health) {
             itemToBuy.restoreHp = EditorGUILayout.IntField ("RestoreHP", itemToBuy.restoreHp);
+            EditorGUILayout.PropertyField (healSoundIndex);
         }
 
         EditorGUILayout.EndVertical ();

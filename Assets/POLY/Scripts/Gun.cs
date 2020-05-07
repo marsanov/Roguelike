@@ -21,7 +21,8 @@ public class Gun : MonoBehaviour {
     void Update () {
         if (PlayerController.instance.canMove && !LevelManager.instance.isPaused) {
             animator.SetBool ("isShooting", true);
-            if (Input.GetMouseButton (0) || Input.GetMouseButtonDown (0)) {
+            // if (Input.GetMouseButton (0) || Input.GetMouseButtonDown (0)) {
+            if (PlayerController.instance.isShooting) {
                 if (shotCounter > 0) {
                     shotCounter -= Time.deltaTime;
                 } else {

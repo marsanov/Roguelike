@@ -30,14 +30,14 @@ public class UIController : MonoBehaviour {
     IEnumerator ClosingShop (float waitTime) {
         yield return new WaitForSeconds (waitTime);
         CloseShop ();
-        loadingScreen.gameObject.SetActive(false);
+        loadingScreen.gameObject.SetActive (false);
     }
 
     private void Start () {
         fadeOut = true;
         fadeIn = false;
         fadeScreen.color = new Color (fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, 1f);
-        
+
         StartCoroutine (ClosingShop (0.2f));
     }
 
@@ -75,11 +75,15 @@ public class UIController : MonoBehaviour {
     }
 
     public void OpenShop () {
+        Time.timeScale = 0f;
+        LevelManager.instance.isPaused = true;
         ShopController.instance.shopUI.SetActive (true);
         ShopController.instance.BalanceTextUpdate ();
     }
 
     public void CloseShop () {
+        Time.timeScale = 1f;
+        LevelManager.instance.isPaused = false;
         ShopController.instance.shopUI.SetActive (false);
     }
 }

@@ -136,8 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 0
   playerBodySR: {fileID: 5575882481424765754}
-  availableGuns:
-  - {fileID: 4773384468369318295}
   playerWeapon: {fileID: 5575882482698094246}
   dashCounter: 0
   moveSpeed: 5
@@ -147,7 +145,9 @@ MonoBehaviour:
   dashInvincibility: 0.3
   dashImpact: {fileID: 2076103674918337812}
   dashSoundIndex: 0
-  gunArm: {fileID: 5575882481749583571}
+  movingJoystick: {fileID: 0}
+  shootingJoystick: {fileID: 0}
+  aimPoint: {fileID: 0}
 --- !u!50 &5575882481749583572
 Rigidbody2D:
   serializedVersion: 4
@@ -160,7 +160,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 1
-  m_Mass: 0.5905949
+  m_Mass: 0.46796796
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -717,18 +717,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 964454349564113165}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4773384468369318295 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5718474200572514458, guid: f693a2eaee487184dbc26b2089f92e4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 964454349564113165}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016daf284a8c6ae46a09af4a7704304d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5575882482636305818
 PrefabInstance:
   m_ObjectHideFlags: 0

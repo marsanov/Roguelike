@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject dashImpact;
     [SerializeField] int dashSoundIndex;
     // [SerializeField] float timeBetweenShots = 0.2f;
-    [SerializeField] Transform gunArm;
-    // [SerializeField] GameObject bulletToFire;
-    // [SerializeField] Transform firePoint;
+    // [SerializeField] Transform playerTransform;
+    [SerializeField] FloatingJoystick movingJoystick;
+    [SerializeField] FloatingJoystick shootingJoystick;
+    [HideInInspector] public Vector3 aimDirection;
+    [HideInInspector] public bool isShooting;
 
     Rigidbody2D rigidbody;
     Vector2 moveInput = new Vector2 ();
@@ -43,59 +45,17 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (canMove && !LevelManager.instance.isPaused) {
-
-            moveInput.x = Input.GetAxis ("Horizontal");
-            moveInput.y = Input.GetAxis ("Vertical");
-
-            moveInput.Normalize ();
+            moveInput = Vector3.up * movingJoystick.Vertical + Vector3.right * movingJoystick.Horizontal;
 
             rigidbody.velocity = moveInput * activeMoveSpeed;
 
-            Vector3 mousePosition = Input.mousePosition;
-            Vector3 screenPoint = camera.WorldToScreenPoint (transform.localPosition);
-
-            /*
-            if (mousePosition.x < screenPoint.x)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-                gunArm.localScale = new Vector3(-1, -1, 1);
-            }
-            else
-            {
-                transform.localScale = Vector3.one;
-                gunArm.localScale = Vector3.one;
-            }
-            */
-
-            //Поворот оружия
-            Vector2 offset = new Vector2 (mousePosition.x - screenPoint.x, mousePosition.y - screenPoint.y);
-            float angle = Mathf.Atan2 (offset.y, offset.x) * Mathf.Rad2Deg;
-            gunArm.rotation = Quaternion.Euler (new Vector3 (0, 0, angle));
-
-            //Стрельба
-            // if (Input.GetMouseButton (0)) {
-            //     shotCounter -= Time.deltaTime;
-
-            //     if (shotCounter <= 0) {
-            //         Instantiate (bulletToFire, firePoint.position, firePoint.rotation);
-            //         shotCounter = timeBetweenShots;
-            //     }
-            // }
+            LookAtAim ();
 
             if (Input.GetKeyDown (KeyCode.Tab)) {
-                SwitchGun();
+                SwitchGun ();
             }
 
             //Dash
-            if (Input.GetKeyDown (KeyCode.LeftShift)) {
-                if (dashCooldownCounter <= 0 && dashCounter <= 0) {
-                    AudioManager.instance.PlaySFX (dashSoundIndex);
-                    activeMoveSpeed = dashSpeed;
-                    dashCounter = dashLength;
-                    dashImpact.SetActive (true);
-                    PlayerHealthController.instance.MakeInvincible (dashInvincibility);
-                }
-            }
             if (dashCounter > 0) {
                 dashCounter -= Time.deltaTime;
                 if (dashCounter <= 0) {
@@ -118,6 +78,18 @@ public class PlayerController : MonoBehaviour {
             rigidbody.velocity = Vector3.zero;
             animator.SetBool ("isMoving", false);
         }
+    }
+
+    public void Dash () {
+        // if (Input.GetKeyDown (KeyCode.LeftShift)) {
+        if (dashCooldownCounter <= 0 && dashCounter <= 0) {
+            AudioManager.instance.PlaySFX (dashSoundIndex);
+            activeMoveSpeed = dashSpeed;
+            dashCounter = dashLength;
+            dashImpact.SetActive (true);
+            PlayerHealthController.instance.MakeInvincible (dashInvincibility);
+        }
+        // }
     }
 
     public void SwitchGun (bool shouldUpdateGunNumber = true) {
@@ -143,5 +115,17 @@ public class PlayerController : MonoBehaviour {
         UIController.instance.currentGun.sprite = CharacterTracker.instance.availableGuns[currentGun].GetComponent<Gun> ().weaponSpriteRenderer.GetComponent<SpriteRenderer> ().sprite;
         UIController.instance.currentGun.SetNativeSize ();
         UIController.instance.gunText.text = CharacterTracker.instance.availableGuns[currentGun].GetComponent<Gun> ().weaponName;
+    }
+
+    private void LookAtAim () {
+        aimDirection = transform.position + Vector3.up * shootingJoystick.Vertical + Vector3.right * shootingJoystick.Horizontal;
+        if (aimDirection == transform.position) {
+            isShooting = false;
+        } else {
+            Vector3 lookDirection = new Vector3 (aimDirection.x - transform.position.x, aimDirection.y - transform.position.y, 0);
+            var angle = Mathf.Atan2 (lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+            isShooting = true;
+        }
     }
 }
