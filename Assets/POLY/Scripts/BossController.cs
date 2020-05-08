@@ -1,4 +1,5 @@
-﻿using Pathfinding;
+﻿using System.Collections;
+using Pathfinding;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -125,6 +126,11 @@ public class BossController : MonoBehaviour {
 
             Instantiate (deathEffect, transform.position, transform.rotation);
 
+            PlayerHealthController.instance.MakeInvincible (5f);
+            Color playerColor = PlayerController.instance.playerBodySR.color;
+            PlayerController.instance.playerBodySR.color = new Color (playerColor.r, playerColor.g, playerColor.b, 1f);
+
+            LevelManager.instance.GetMultipleCoins (10);
             LevelManager.instance.StartCoroutine ("LevelEnd");
         }
 

@@ -61,6 +61,20 @@ public class LevelManager : MonoBehaviour {
         coinTextRefresh ();
     }
 
+    public void GetMultipleCoins (int amount) {
+        StartCoroutine (MultipleCoinsReward (amount));
+    }
+
+    IEnumerator MultipleCoinsReward (int amount) {
+        float waitTime = (float) 5 / amount;
+        for (int i = 0; i < amount; i++) {
+            currentCoins += 1;
+            coinTextRefresh();
+            AudioManager.instance.PlaySFX (5);
+            yield return new WaitForSeconds (waitTime);
+        }
+    }
+
     public void SpendCoins (int amount) {
         currentCoins -= amount;
 
