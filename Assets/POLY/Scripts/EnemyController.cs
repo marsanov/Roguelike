@@ -69,7 +69,7 @@ public class EnemyController : MonoBehaviour {
 
         InvokeRepeating ("UpdatePath", 0f, .5f);
 
-        if(shouldPatrol) moveSpeed = patrolSpeed;
+        if (shouldPatrol) moveSpeed = patrolSpeed;
     }
 
     void Update () {
@@ -130,8 +130,7 @@ public class EnemyController : MonoBehaviour {
         moveDirection = Vector3.zero;
         float distanceToPlayer = Vector3.Distance (transform.position, PlayerController.instance.transform.position);
 
-        if (distanceToPlayer < chaseDistance && shouldChasePlayer && distanceToPlayer > 2f) {
-
+        if (inCombat || (distanceToPlayer < chaseDistance && shouldChasePlayer && distanceToPlayer > 2f)) {
             if (!inCombat && isPlayerVisible ()) {
                 inCombat = true;
                 moveSpeed = combatSpeed;
@@ -155,11 +154,12 @@ public class EnemyController : MonoBehaviour {
         if (currentPathWaypoint >= currentPath.vectorPath.Count - 1) return;
         if (Vector3.Distance (transform.position, currentPath.vectorPath[currentPathWaypoint]) <= nextWaypointDistance) currentPathWaypoint++;
 
-        //Look forward to path
-        //Transform targetTransform = currentPath.vectorPath[currentPathWaypoint].normalized * 1f;
-        Vector2 rotateDirection = new Vector2 (currentPath.vectorPath[currentPathWaypoint].x - transform.position.x, currentPath.vectorPath[currentPathWaypoint].y - transform.position.y);
-        var angle = Mathf.Atan2 (rotateDirection.y, rotateDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+        if (!isPlayerVisible ()) {
+            //Look forward to path
+            Vector2 rotateDirection = new Vector2 (currentPath.vectorPath[currentPathWaypoint].x - transform.position.x, currentPath.vectorPath[currentPathWaypoint].y - transform.position.y);
+            var angle = Mathf.Atan2 (rotateDirection.y, rotateDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+        }
 
         moveDirection = currentPath.vectorPath[currentPathWaypoint] - transform.position;
         moveDirection.Normalize ();

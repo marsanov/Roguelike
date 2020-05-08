@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour {
             rigidbody.velocity = moveInput * activeMoveSpeed;
 
             LookAtAim ();
+            if (!isShooting) {
+                LookAtMoveDirection ();
+            }
 
             if (Input.GetKeyDown (KeyCode.Tab)) {
                 SwitchGun ();
@@ -127,5 +130,13 @@ public class PlayerController : MonoBehaviour {
             transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
             isShooting = true;
         }
+    }
+
+    void LookAtMoveDirection () {
+        Vector3 moveDirection = transform.position + Vector3.up * movingJoystick.Vertical + Vector3.right * movingJoystick.Horizontal;
+        if (moveDirection == transform.position) return;
+        Vector3 lookDirection = new Vector3 (moveDirection.x - transform.position.x, moveDirection.y - transform.position.y, 0);
+        var angle = Mathf.Atan2 (lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
     }
 }

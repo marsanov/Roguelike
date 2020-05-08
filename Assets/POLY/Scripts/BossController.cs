@@ -13,13 +13,15 @@ public class BossController : MonoBehaviour {
     [SerializeField] Image bossHealthSlider;
     [SerializeField] float bossAgroDistance;
     [SerializeField] float shootRange;
+    [SerializeField] float moveSpeed, combatSpeed;
     public GameObject hitEffect;
     int maxBossHealth;
 
-    Vector2 moveDirection;
+    Vector3 moveDirection;
     float actionCounter;
     float shootCounter;
     int currentAction;
+    bool inCombat;
 
     [Header ("Pathfinding")]
     [SerializeField] float nextWaypointDistance = 3f;
@@ -38,29 +40,38 @@ public class BossController : MonoBehaviour {
         actionCounter = actions[currentAction].actionLength;
         seeker = GetComponent<Seeker> ();
         pathTarget = this.transform;
-
+        rigidbody = GetComponent<Rigidbody2D> ();
         InvokeRepeating ("UpdatePath", 0f, .5f);
     }
 
     // Update is called once per frame
     void Update () {
-        if (Vector3.Distance (PlayerController.instance.transform.position, transform.position) > bossAgroDistance) return;
+        float distanceToPlayer = Vector3.Distance (transform.position, PlayerController.instance.transform.position);
+
+        if (distanceToPlayer > bossAgroDistance && !inCombat) {
+            return;
+        } else {
+            inCombat = true;
+        }
 
         if (actionCounter > 0) {
             actionCounter -= Time.deltaTime;
 
             //Movement
             pathTarget = this.transform;
-            moveDirection = Vector2.zero;
+            moveDirection = Vector3.zero;
 
             if (actions[currentAction].shouldChasePlayer) {
-                LookAt (PlayerController.instance.transform);
-                moveDirection = PlayerController.instance.transform.position - transform.position;
-                moveDirection.Normalize ();
+                if (distanceToPlayer > 3f) {
+                    pathTarget = PlayerController.instance.transform;
+                }
+                // moveDirection = PlayerController.instance.transform.position - transform.position;
+                // moveDirection.Normalize ();
             }
 
             if (actions[currentAction].moveToPoint) {
-                moveDirection = actions[currentAction].pointToMoveTo.position - transform.position;
+                pathTarget = actions[currentAction].pointToMoveTo;
+                // moveDirection = actions[currentAction].pointToMoveTo.position - transform.position;
             }
 
             //Shooting
@@ -69,15 +80,30 @@ public class BossController : MonoBehaviour {
                 if (shootCounter <= 0) {
                     shootCounter = actions[currentAction].timeBetweenShoots;
 
-                    LookAt (PlayerController.instance.transform);
-
                     foreach (Transform t in actions[currentAction].shootPoints) {
                         Instantiate (actions[currentAction].itemToShoot, t.position, t.rotation);
                     }
                 }
             }
 
-            rigidbody.velocity = moveDirection * actions[currentAction].moveSpeed;
+            if (currentPath == null) return;
+            if (currentPathWaypoint >= currentPath.vectorPath.Count - 1) return;
+            if (Vector3.Distance (transform.position, currentPath.vectorPath[currentPathWaypoint]) <= nextWaypointDistance) currentPathWaypoint++;
+
+            if (inCombat) {
+                LookAt (PlayerController.instance.transform);
+            } else {
+                //Look forward to path
+                Vector2 rotateDirection = new Vector2 (currentPath.vectorPath[currentPathWaypoint].x - transform.position.x, currentPath.vectorPath[currentPathWaypoint].y - transform.position.y);
+                var angle = Mathf.Atan2 (rotateDirection.y, rotateDirection.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+            }
+
+            moveDirection = currentPath.vectorPath[currentPathWaypoint] - transform.position;
+            moveDirection.Normalize ();
+
+            rigidbody.velocity = moveDirection * moveSpeed;
+
         } else {
             currentAction++;
             if (currentAction >= actions.Length) {
@@ -130,7 +156,7 @@ public class BossController : MonoBehaviour {
     }
 
     void UpdatePath () {
-//        seeker.StartPath (transform.position, pathTarget.position, OnPathComplete);
+        seeker.StartPath (transform.position, pathTarget.position, OnPathComplete);
     }
 
 }
