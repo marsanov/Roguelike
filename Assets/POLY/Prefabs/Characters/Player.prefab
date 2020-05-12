@@ -147,7 +147,8 @@ MonoBehaviour:
   dashSoundIndex: 0
   movingJoystick: {fileID: 0}
   shootingJoystick: {fileID: 0}
-  aimPoint: {fileID: 0}
+  aimDirection: {x: 0, y: 0, z: 0}
+  isShooting: 0
 --- !u!50 &5575882481749583572
 Rigidbody2D:
   serializedVersion: 4
@@ -653,6 +654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Automat Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150647336167943521, guid: f693a2eaee487184dbc26b2089f92e4e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1652574090999877446, guid: f693a2eaee487184dbc26b2089f92e4e,
         type: 3}

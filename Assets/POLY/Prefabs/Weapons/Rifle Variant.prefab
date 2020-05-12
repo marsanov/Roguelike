@@ -118,6 +118,42 @@ PrefabInstance:
       propertyPath: timeBetweenShots
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: bulletToFire
+      value: 
+      objectReference: {fileID: 4982192677777422090, guid: 202141a991a87ec43906287fd74022de,
+        type: 3}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: bulletsPerShot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: reloadTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: shotMinIndex
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: shotMaxIndex
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: reloadMinIndex
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: reloadMaxIndex
+      value: 41
+      objectReference: {fileID: 0}
     - target: {fileID: 8075465274204476849, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
         type: 3}
       propertyPath: m_LocalPosition.x

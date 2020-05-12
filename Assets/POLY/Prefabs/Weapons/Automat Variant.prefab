@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 442173245539370520, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 504420571434161157, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
         type: 3}
@@ -137,6 +137,26 @@ PrefabInstance:
         type: 3}
       propertyPath: reloadTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: shotMinIndex
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: shotMaxIndex
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: reloadMinIndex
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: reloadMaxIndex
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 8075465274204476849, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
         type: 3}

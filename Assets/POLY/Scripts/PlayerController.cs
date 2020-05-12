@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour {
     float activeMoveSpeed;
     float dashCooldownCounter;
     private int currentGun;
-    
 
     private void Awake () {
         instance = this;
@@ -97,6 +96,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void SwitchGun (bool shouldUpdateGunNumber = true) {
+        foreach (GameObject theGun in CharacterTracker.instance.availableGuns) {
+            theGun.gameObject.SetActive (false);
+        }
+
         if (shouldUpdateGunNumber && CharacterTracker.instance.availableGuns.Count > 0) {
             currentGun++;
 
@@ -107,9 +110,6 @@ public class PlayerController : MonoBehaviour {
             Debug.Log ("Player has no guns!");
         }
 
-        foreach (GameObject theGun in CharacterTracker.instance.availableGuns) {
-            theGun.gameObject.SetActive (false);
-        }
         CharacterTracker.instance.availableGuns[currentGun].gameObject.SetActive (true);
 
         UiCurrentGunUpdate ();

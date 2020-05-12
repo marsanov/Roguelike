@@ -31,8 +31,8 @@ TagManager:
   - Obstacle
   - Walls
   - Doors
-  - 
-  - 
+  - EnemyWeapons
+  - RoomOutlines
   - 
   - 
   - 

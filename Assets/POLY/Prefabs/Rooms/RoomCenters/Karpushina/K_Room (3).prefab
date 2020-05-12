@@ -1208,12 +1208,12 @@ PrefabInstance:
     - target: {fileID: 6094114584225846950, guid: ab9feb411b25b044ebc21ee172950c34,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.9
+      value: -4.62
       objectReference: {fileID: 0}
     - target: {fileID: 6094114584225846950, guid: ab9feb411b25b044ebc21ee172950c34,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.68
+      value: 3.76
       objectReference: {fileID: 0}
     - target: {fileID: 6094114584225846950, guid: ab9feb411b25b044ebc21ee172950c34,
         type: 3}
@@ -2160,12 +2160,12 @@ PrefabInstance:
     - target: {fileID: 7470163970289875667, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.9251833
+      value: 6.29
       objectReference: {fileID: 0}
     - target: {fileID: 7470163970289875667, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8481252
+      value: -3.13
       objectReference: {fileID: 0}
     - target: {fileID: 7470163970289875667, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
@@ -2220,12 +2220,12 @@ PrefabInstance:
     - target: {fileID: 7470163970289875677, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
       propertyPath: shootRange
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7470163970289875677, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
       propertyPath: chaseDistance
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef6a4cce8f328f3408b0867b27f1ca27, type: 3}
@@ -25670,12 +25670,12 @@ PrefabInstance:
     - target: {fileID: 7470163970289875667, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.638473
+      value: -7.16
       objectReference: {fileID: 0}
     - target: {fileID: 7470163970289875667, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.356961
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 7470163970289875667, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
@@ -25730,12 +25730,12 @@ PrefabInstance:
     - target: {fileID: 7470163970289875677, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
       propertyPath: shootRange
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7470163970289875677, guid: ef6a4cce8f328f3408b0867b27f1ca27,
         type: 3}
       propertyPath: chaseDistance
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef6a4cce8f328f3408b0867b27f1ca27, type: 3}

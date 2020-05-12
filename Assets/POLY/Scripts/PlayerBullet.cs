@@ -5,7 +5,7 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField] float moveSpeed = 7.5f;
     [SerializeField] int bulletDamage = 10;
     [SerializeField] GameObject impactEffect;
-    [SerializeField] int bulletSoundIndex;
+    // [SerializeField] int bulletSoundIndex;
     [SerializeField] int bulletImpactSoundIndex;
 
     Rigidbody2D rigidbody;
@@ -13,7 +13,7 @@ public class PlayerBullet : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        AudioManager.instance.PlaySFX(bulletSoundIndex);
+        // AudioManager.instance.PlaySFX(bulletSoundIndex);
     }
 
     private void Update()

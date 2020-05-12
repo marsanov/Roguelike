@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour {
     //Public methods
     public IEnumerator LevelEnd () {
         yield return new WaitForSeconds (5);
-        AudioManager.instance.PlayLevelWin ();
+        //AudioManager.instance.PlayLevelWin ();
         UIController.instance.StartFadeIn ();
         PlayerController.instance.canMove = false;
         yield return new WaitForSeconds (waitToLoad);

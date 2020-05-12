@@ -497,7 +497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5041849754991009204}
-  m_Layer: 13
+  m_Layer: 21
   m_Name: FirePoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5041849755178179292}
-  m_Layer: 13
+  m_Layer: 21
   m_Name: FirePoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5041849755214725238}
-  m_Layer: 13
+  m_Layer: 21
   m_Name: FirePoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 6302720362195774801}
   - component: {fileID: 6619560135543716557}
   - component: {fileID: 1462141393109815749}
-  m_Layer: 9
+  m_Layer: 21
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1297,7 +1297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8904045354981804988}
-  m_Layer: 13
+  m_Layer: 21
   m_Name: FirePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
