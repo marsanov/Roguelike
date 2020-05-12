@@ -4319,6 +4319,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2205121399219298065, guid: 533ce6399cac27c40a5f43a9851ad5a2,
+        type: 3}
+      propertyPath: shootRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2205121399219298070, guid: 533ce6399cac27c40a5f43a9851ad5a2,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -4423,6 +4428,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041849755865121331, guid: 533ce6399cac27c40a5f43a9851ad5a2,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041849755865121334, guid: 533ce6399cac27c40a5f43a9851ad5a2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5041849756051328761, guid: 533ce6399cac27c40a5f43a9851ad5a2,
         type: 3}

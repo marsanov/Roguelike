@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: price
       value: 123
       objectReference: {fileID: 0}
+    - target: {fileID: 7468662300647022902, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: m_Text
+      value: "Damage: \t\t\t10\nFire Rate: \t\t0.2\nReload Time: \t\t0\nAmmo:\t\t\t\tInfinite"
+      objectReference: {fileID: 0}
     - target: {fileID: 7468662300813535193, guid: de94c986d279baf45978d708a5f08cc5,
         type: 3}
       propertyPath: m_LocalPosition.x

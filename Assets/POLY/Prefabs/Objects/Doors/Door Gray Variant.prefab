@@ -62,16 +62,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7788270427826602650, guid: a03a38abaa8832b4aaa54b284432743e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0022400618
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788270427826602650, guid: a03a38abaa8832b4aaa54b284432743e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.22872376
+      objectReference: {fileID: 0}
     - target: {fileID: 7788270427826602651, guid: a03a38abaa8832b4aaa54b284432743e,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 8256346033249159134, guid: e57ab7349873a204b933bbbdd3ad3e87,
         type: 3}
+    - target: {fileID: 7788270427826602652, guid: a03a38abaa8832b4aaa54b284432743e,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.262841
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788270427826602652, guid: a03a38abaa8832b4aaa54b284432743e,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.01889515
+      objectReference: {fileID: 0}
     - target: {fileID: 7788270427826602655, guid: a03a38abaa8832b4aaa54b284432743e,
         type: 3}
       propertyPath: m_Name
-      value: Door Gray
+      value: Door Gray Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788270427826602655, guid: a03a38abaa8832b4aaa54b284432743e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a03a38abaa8832b4aaa54b284432743e, type: 3}

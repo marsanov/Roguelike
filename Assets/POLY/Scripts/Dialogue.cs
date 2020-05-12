@@ -15,6 +15,7 @@ public class Dialogue : MonoBehaviour {
 
     bool nearPlayer, interactWithPlayer;
     int currentDialogueTextIndex = -1;
+    bool dialogueComplete;
 
     // Start is called before the first frame update
     void Start () {
@@ -23,7 +24,7 @@ public class Dialogue : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (nearPlayer && interactWithPlayer) {
+        if (nearPlayer && interactWithPlayer && !dialogueComplete) {
             dialogueScreen.SetActive (true);
 
             dialogueText.text = dialogueReplics[currentDialogueTextIndex];
@@ -43,13 +44,14 @@ public class Dialogue : MonoBehaviour {
 
             if (shouldBeginNewLevel) {
                 LevelManager.instance.StartCoroutine ("LevelEnd");
+                dialogueComplete = true;
             }
         }
         // }
     }
 
     private void OnTriggerEnter2D (Collider2D other) {
-        if (other.tag == "Player") {
+        if (other.tag == "Player" && !dialogueComplete) {
             interactButtonPlaceholder.gameObject.SetActive (true);
             nearPlayer = true;
         }

@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
     float activeMoveSpeed;
     float dashCooldownCounter;
     private int currentGun;
+    
 
     private void Awake () {
         instance = this;

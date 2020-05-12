@@ -49,7 +49,7 @@ public class BossController : MonoBehaviour {
     void Update () {
         float distanceToPlayer = Vector3.Distance (transform.position, PlayerController.instance.transform.position);
 
-        if (distanceToPlayer > bossAgroDistance && !inCombat) {
+        if (!inCombat && distanceToPlayer > bossAgroDistance) {
             return;
         } else {
             inCombat = true;
@@ -59,21 +59,18 @@ public class BossController : MonoBehaviour {
             actionCounter -= Time.deltaTime;
 
             //Movement
-            pathTarget = this.transform;
             moveDirection = Vector3.zero;
 
             if (actions[currentAction].shouldChasePlayer) {
-                if (distanceToPlayer > 3f) {
-                    pathTarget = PlayerController.instance.transform;
-                }
+                pathTarget = PlayerController.instance.transform;
                 // moveDirection = PlayerController.instance.transform.position - transform.position;
                 // moveDirection.Normalize ();
             }
 
-            if (actions[currentAction].moveToPoint) {
-                pathTarget = actions[currentAction].pointToMoveTo;
-                // moveDirection = actions[currentAction].pointToMoveTo.position - transform.position;
-            }
+            // if (actions[currentAction].moveToPoint) {
+            //     pathTarget = actions[currentAction].pointToMoveTo;
+            //     // moveDirection = actions[currentAction].pointToMoveTo.position - transform.position;
+            // }
 
             //Shooting
             if (actions[currentAction].shouldShoot) {
@@ -100,8 +97,14 @@ public class BossController : MonoBehaviour {
                 transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
             }
 
-            moveDirection = currentPath.vectorPath[currentPathWaypoint] - transform.position;
-            moveDirection.Normalize ();
+            if (distanceToPlayer > 3f) {
+                moveDirection = currentPath.vectorPath[currentPathWaypoint] - transform.position;
+                moveDirection.Normalize ();
+            }
+            else
+            {
+                moveDirection = Vector3.zero;
+            }
 
             rigidbody.velocity = moveDirection * moveSpeed;
 
@@ -113,7 +116,9 @@ public class BossController : MonoBehaviour {
 
             actionCounter = actions[currentAction].actionLength;
         }
+    }
 
+    private void LateUpdate () {
         bossCanvas.transform.position = new Vector2 (transform.position.x, transform.position.y);
     }
 

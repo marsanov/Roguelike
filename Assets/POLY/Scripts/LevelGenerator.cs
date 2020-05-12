@@ -141,8 +141,8 @@ public class LevelGenerator : MonoBehaviour {
         //Switch to 2D mode
         gridGraph.rotation = new Vector3 (-90, 270, 90);
         //Setup a grid graph with some values
-        int width = 56;
-        int depth = 28;
+        int width = 60;
+        int depth = 32;
         float nodeSize = 0.5f;
         gridGraph.SetDimensions (width, depth, nodeSize);
         //Move Grid Graph

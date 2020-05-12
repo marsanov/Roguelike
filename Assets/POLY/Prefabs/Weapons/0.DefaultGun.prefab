@@ -79,7 +79,8 @@ MonoBehaviour:
   timeBetweenShots: 0.2
   bulletToFire: {fileID: 7344703532140274884, guid: c80e65ce1a391a247a438e0b2819f46e,
     type: 3}
-  firePoint: {fileID: 8075465274204476849}
+  firePoints:
+  - {fileID: 8075465274204476849}
 --- !u!95 &4078492817272135105
 Animator:
   serializedVersion: 3

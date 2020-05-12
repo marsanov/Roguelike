@@ -137,7 +137,14 @@ public class EnemyController : MonoBehaviour {
             }
             if (inCombat) {
                 pathTarget = PlayerController.instance.transform;
-                LookAt (PlayerController.instance.transform);
+                if (isPlayerVisible ()) {
+                    LookAt (PlayerController.instance.transform);
+                } else {
+                    //Look forward to path
+                    Vector2 rotateDirection = new Vector2 (currentPath.vectorPath[currentPathWaypoint].x - transform.position.x, currentPath.vectorPath[currentPathWaypoint].y - transform.position.y);
+                    var angle = Mathf.Atan2 (rotateDirection.y, rotateDirection.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+                }
             }
         } else if (shouldPatrol) {
             if (Vector3.Distance (transform.position, patrolPoints[currentPatrolPoint].position) < .2f) {
@@ -153,13 +160,6 @@ public class EnemyController : MonoBehaviour {
         if (currentPath == null) return;
         if (currentPathWaypoint >= currentPath.vectorPath.Count - 1) return;
         if (Vector3.Distance (transform.position, currentPath.vectorPath[currentPathWaypoint]) <= nextWaypointDistance) currentPathWaypoint++;
-
-        if (!isPlayerVisible ()) {
-            //Look forward to path
-            Vector2 rotateDirection = new Vector2 (currentPath.vectorPath[currentPathWaypoint].x - transform.position.x, currentPath.vectorPath[currentPathWaypoint].y - transform.position.y);
-            var angle = Mathf.Atan2 (rotateDirection.y, rotateDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-        }
 
         moveDirection = currentPath.vectorPath[currentPathWaypoint] - transform.position;
         moveDirection.Normalize ();

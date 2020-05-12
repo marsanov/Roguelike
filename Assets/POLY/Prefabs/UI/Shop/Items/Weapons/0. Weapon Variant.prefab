@@ -130,6 +130,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 0. Weapon Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6370490757853584414, guid: 0a317f4f58237d449b9250f780ba37b6,
+        type: 3}
+      propertyPath: m_Text
+      value: "Damage: \t\t\t10\nFire Rate: \t\t0.2\nReload Time: \t\t0\nAmmo:\t\t\t\tInfinite"
+      objectReference: {fileID: 0}
     - target: {fileID: 6370490758776707836, guid: 0a317f4f58237d449b9250f780ba37b6,
         type: 3}
       propertyPath: m_Text

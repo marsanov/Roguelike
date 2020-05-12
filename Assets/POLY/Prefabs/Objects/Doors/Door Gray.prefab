@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7788270427826602650}
   - component: {fileID: 7788270427826602653}
   - component: {fileID: 7788270427826602652}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Door Gray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -97,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02020663, y: -0.00026106834}
+  m_Offset: {x: 0.02020663, y: -0.0027620792}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -108,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6545118, y: 0.10367441}
+  m_Size: {x: 1.6545118, y: 0.25873566}
   m_EdgeRadius: 0
 --- !u!50 &7788270427826602653
 Rigidbody2D:
@@ -146,7 +147,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -1.262841, y: 0.01889515}
-  m_ConnectedAnchor: {x: -4.252841, y: 4.7788954}
+  m_ConnectedAnchor: {x: -1.262841, y: 0.01889515}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
