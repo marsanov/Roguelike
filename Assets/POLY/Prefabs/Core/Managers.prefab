@@ -2734,6 +2734,7 @@ GameObject:
   - component: {fileID: 955228987252766685}
   - component: {fileID: 1937303933749725884}
   - component: {fileID: 557102962}
+  - component: {fileID: 6139968716097346603}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2786,6 +2787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitToLoad: 3
   nextLevel: Level 2
+  isPaused: 0
+  currentCoins: 0
 --- !u!114 &557102962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2823,6 +2826,18 @@ MonoBehaviour:
   - {fileID: 955228985458763266}
   - {fileID: 955228985565132311}
   - {fileID: 955228986968235821}
+--- !u!114 &6139968716097346603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955228987252766683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db83448806add6d45b72289cedb33feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &955228987255598408
 GameObject:
   m_ObjectHideFlags: 0
