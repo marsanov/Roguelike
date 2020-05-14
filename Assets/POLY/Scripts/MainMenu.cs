@@ -4,19 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
-{
+public class MainMenu : MonoBehaviour {
     [SerializeField] string sceneToLoad;
     [SerializeField] Image loadingScreen;
 
-    public void StartGame()
-    {
-        loadingScreen.gameObject.SetActive(true);
-        SceneManager.LoadScene(sceneToLoad);
+    public void StartGame () {
+        loadingScreen.gameObject.SetActive (true);
+        // SceneManager.LoadScene (sceneToLoad);
+        SceneManager.LoadSceneAsync (sceneToLoad);
     }
 
-    public void ExitGame()
-    {
-        Application.Quit();
+    public void ExitGame () {
+        Application.Quit ();
     }
 }

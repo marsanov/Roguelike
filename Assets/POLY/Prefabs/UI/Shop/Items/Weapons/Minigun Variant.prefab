@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -143232446591035058, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: shopItem_Minigun
+      objectReference: {fileID: 0}
+    - target: {fileID: 57773642027440849, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: price
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 57773642027440849, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 9108346272409965590, guid: 41bf4f155c1387a499302fb3a2f0c7fb,
+        type: 3}
     - target: {fileID: 7468662300647022902, guid: de94c986d279baf45978d708a5f08cc5,
         type: 3}
       propertyPath: m_Text

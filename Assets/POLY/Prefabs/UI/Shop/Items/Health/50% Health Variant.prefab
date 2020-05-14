@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: restoreHp
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4998221300262050982, guid: 359ad1656c6c59b48903db368e93245f,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: shopItem_50%Health
+      objectReference: {fileID: 0}
     - target: {fileID: 5178826458444500855, guid: 359ad1656c6c59b48903db368e93245f,
         type: 3}
       propertyPath: m_Text
@@ -130,23 +135,54 @@ PrefabInstance:
     - target: {fileID: 5178826458608945563, guid: 359ad1656c6c59b48903db368e93245f,
         type: 3}
       propertyPath: m_Name
-      value: 50% Health
+      value: 50% Health Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178826459501058742, guid: 359ad1656c6c59b48903db368e93245f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178826459501058742, guid: 359ad1656c6c59b48903db368e93245f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178826459501058742, guid: 359ad1656c6c59b48903db368e93245f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178826459501058742, guid: 359ad1656c6c59b48903db368e93245f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178826459501058742, guid: 359ad1656c6c59b48903db368e93245f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5178826459501058743, guid: 359ad1656c6c59b48903db368e93245f,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.85671145
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5178826459501058743, guid: 359ad1656c6c59b48903db368e93245f,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.8679245
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5178826459501058743, guid: 359ad1656c6c59b48903db368e93245f,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.13510147
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5178826459501058743, guid: 359ad1656c6c59b48903db368e93245f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4337684191699249041, guid: aef60bc4369d8d847aa7db3de03fc00f,
+        type: 3}
     - target: {fileID: 5178826459702380949, guid: 359ad1656c6c59b48903db368e93245f,
         type: 3}
       propertyPath: m_Text

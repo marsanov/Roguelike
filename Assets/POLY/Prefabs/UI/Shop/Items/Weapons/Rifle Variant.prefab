@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -143232446591035058, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: shopItem_Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 57773642027440849, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: price
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 57773642027440849, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 6063269471381740599, guid: 45b3262f03b187b49af9bcf2d9e89408,
+        type: 3}
     - target: {fileID: 7468662300647022902, guid: de94c986d279baf45978d708a5f08cc5,
         type: 3}
       propertyPath: m_Text

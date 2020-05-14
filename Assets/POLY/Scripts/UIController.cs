@@ -63,13 +63,15 @@ public class UIController : MonoBehaviour {
     public void StartNewGame () {
         Time.timeScale = 1f;
         loadingScreen.gameObject.SetActive (true);
-        SceneManager.LoadScene (newGameScene);
+        // SceneManager.LoadScene (newGameScene);
+        SceneManager.LoadSceneAsync (newGameScene);
     }
 
     public void GoToMainMenu () {
         Time.timeScale = 1f;
         loadingScreen.gameObject.SetActive (true);
-        SceneManager.LoadScene (mainMenuScene);
+        // SceneManager.LoadScene (mainMenuScene);
+        SceneManager.LoadSceneAsync (mainMenuScene);
     }
 
     public void Resume () {
@@ -80,6 +82,7 @@ public class UIController : MonoBehaviour {
         LevelManager.instance.isPaused = true;
         ShopController.instance.shopUI.SetActive (true);
         ShopController.instance.BalanceTextUpdate ();
+        ShopController.instance.SwitchCategory (0);
     }
 
     public void CloseShop () {

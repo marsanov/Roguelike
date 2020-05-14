@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour {
     [SerializeField] int bulletsPerShot;
     [SerializeField] float reloadTime;
     [SerializeField] Transform[] firePoints;
+    [SerializeField] bool hasAnimation;
 
     [Header ("Sound")]
     [SerializeField] int shotMinIndex;
@@ -35,7 +36,7 @@ public class Gun : MonoBehaviour {
         if (PlayerController.instance.canMove && !LevelManager.instance.isPaused) {
 
             if (PlayerController.instance.isShooting) {
-                animator.SetBool ("isShooting", true);
+                if (hasAnimation) animator.SetBool ("isShooting", true);
                 if (reloadCounter > 0) {
                     reloadCounter -= Time.deltaTime;
                 } else {
@@ -60,7 +61,7 @@ public class Gun : MonoBehaviour {
                     reloaded = true;
                 }
 
-                if (animator.GetBool ("isShooting")) {
+                if (hasAnimation && animator.GetBool ("isShooting")) {
                     animator.SetBool ("isShooting", false);
                 }
                 bulletsCounter = 0;

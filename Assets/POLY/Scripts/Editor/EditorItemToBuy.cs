@@ -35,13 +35,13 @@ public class EditorItemToBuy : Editor {
         EditorGUILayout.BeginVertical (); // Это чтобы элементы были вертикально друг за другом
 
         EditorGUILayout.PropertyField (price);
-        if (itemToBuy.priceText == null) EditorGUILayout.PropertyField (priceText);
+        EditorGUILayout.PropertyField (priceText);
 
         itemToBuy.type = (ItemType) EditorGUILayout.EnumPopup ("Item Type", itemToBuy.type);
 
         if (itemToBuy.type == ItemType.weapon) {
             EditorGUILayout.PropertyField (weapon);
-            if (itemToBuy.buyButtonText == null) EditorGUILayout.PropertyField (buyButtonText);
+            EditorGUILayout.PropertyField (buyButtonText);
         } else if (itemToBuy.type == ItemType.health) {
             itemToBuy.restoreHp = EditorGUILayout.IntField ("RestoreHP", itemToBuy.restoreHp);
             EditorGUILayout.PropertyField (healSoundIndex);

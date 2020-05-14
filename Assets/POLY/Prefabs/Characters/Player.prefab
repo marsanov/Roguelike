@@ -161,15 +161,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 1
-  m_Mass: 0.46796796
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_Mass: 0.5905948
+  m_LinearDrag: 10
+  m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &5575882481749583574
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -149,6 +149,11 @@ PrefabInstance:
       propertyPath: reloadMaxIndex
       value: 59
       objectReference: {fileID: 0}
+    - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
+        type: 3}
+      propertyPath: hasAnimation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8075465274204476849, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
         type: 3}
       propertyPath: m_LocalPosition.x

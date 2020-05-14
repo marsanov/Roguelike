@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelExit : MonoBehaviour
-{
+public class LevelExit : MonoBehaviour {
     [SerializeField] string levelToLoad;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.tag == "Player")
-        {
+    private void OnTriggerEnter2D (Collider2D other) {
+        if (other.tag == "Player") {
             //StartCoroutine(LevelManager.instance.LevelEnd());
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+            SceneManager.LoadSceneAsync (SceneManager.GetActiveScene ().name);
         }
     }
 }

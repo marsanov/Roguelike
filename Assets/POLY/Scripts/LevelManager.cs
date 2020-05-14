@@ -41,7 +41,8 @@ public class LevelManager : MonoBehaviour {
         SavingWrapper.instance.Save ();
 
         UIController.instance.loadingScreen.gameObject.SetActive (true);
-        SceneManager.LoadScene (nextLevel);
+        // SceneManager.LoadScene (nextLevel);
+        SceneManager.LoadSceneAsync (nextLevel);
     }
 
     public void PauseUnpause () {
@@ -69,7 +70,7 @@ public class LevelManager : MonoBehaviour {
         float waitTime = (float) 5 / amount;
         for (int i = 0; i < amount; i++) {
             currentCoins += 1;
-            coinTextRefresh();
+            coinTextRefresh ();
             AudioManager.instance.PlaySFX (5);
             yield return new WaitForSeconds (waitTime);
         }

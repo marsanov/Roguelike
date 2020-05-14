@@ -65,10 +65,9 @@ public class ItemToBuy : MonoBehaviour, ISaveable {
     public void RestoreState (object state) {
         isBuyed = (bool) state;
         if (isBuyed) {
-            BuyButtonTextChange ();
             InstantiateWeapon ();
+            BuyButtonTextChange ();
         }
-        UIController.instance.CloseShop ();
     }
 }
 
