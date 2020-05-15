@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour {
     [SerializeField] int shotMinIndex;
     [SerializeField] int shotMaxIndex;
     [SerializeField] int reloadMinIndex, reloadMaxIndex;
+    [SerializeField] float reloadSoundDelay;
 
     Animator animator;
     //float shotCounter = 0;
@@ -51,13 +52,14 @@ public class Gun : MonoBehaviour {
                     } else {
                         bulletsCounter = 0;
                         reloadCounter = reloadTime;
-                        AudioManager.instance.PlaySFX (Random.Range (reloadMinIndex, reloadMaxIndex));
+                        StartCoroutine (PlayReloadSFX (reloadSoundDelay));
                         reloaded = true;
                     }
                 }
             } else {
                 if (!reloaded) {
-                    AudioManager.instance.PlaySFX (Random.Range (reloadMinIndex, reloadMaxIndex));
+                    StartCoroutine (PlayReloadSFX (reloadSoundDelay));
+                    // AudioManager.instance.PlaySFX (Random.Range (reloadMinIndex, reloadMaxIndex));
                     reloaded = true;
                 }
 
@@ -67,5 +69,10 @@ public class Gun : MonoBehaviour {
                 bulletsCounter = 0;
             }
         }
+    }
+
+    IEnumerator PlayReloadSFX (float delay) {
+        yield return new WaitForSeconds (delay);
+        AudioManager.instance.PlaySFX (Random.Range (reloadMinIndex, reloadMaxIndex));
     }
 }

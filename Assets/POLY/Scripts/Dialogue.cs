@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour {
-    [SerializeField] string[] dialogueReplics;
+    [SerializeField] List<string> dialogueReplics = new List<string> ();
     [SerializeField] GameObject interactButtonPlaceholder, dialogueScreen;
     [SerializeField] Text dialogueText;
     [SerializeField] bool shouldBeginNewLevel;
@@ -16,6 +16,7 @@ public class Dialogue : MonoBehaviour {
     bool nearPlayer, interactWithPlayer;
     int currentDialogueTextIndex = -1;
     bool dialogueComplete;
+    bool endDialogue;
 
     // Start is called before the first frame update
     void Start () {
@@ -34,8 +35,11 @@ public class Dialogue : MonoBehaviour {
     public void Talk () {
         // if (Input.GetKeyDown (KeyCode.E) && nearPlayer) {
         interactWithPlayer = true;
-        currentDialogueTextIndex++;
-        if (currentDialogueTextIndex >= dialogueReplics.Length) {
+        // currentDialogueTextIndex++;
+        if (!shouldOpenShop) currentDialogueTextIndex = Random.Range (0, dialogueReplics.Count);
+        else endDialogue = true;
+
+        if (endDialogue) {
             EndDialogue ();
 
             if (shouldOpenShop) {
@@ -47,6 +51,21 @@ public class Dialogue : MonoBehaviour {
                 dialogueComplete = true;
             }
         }
+
+        endDialogue = true;
+
+        // if (currentDialogueTextIndex >= dialogueReplics.Length) {
+        //     EndDialogue ();
+
+        //     if (shouldOpenShop) {
+        //         UIController.instance.OpenShop ();
+        //     }
+
+        //     if (shouldBeginNewLevel) {
+        //         LevelManager.instance.StartCoroutine ("LevelEnd");
+        //         dialogueComplete = true;
+        //     }
+        // }
         // }
     }
 
@@ -67,6 +86,7 @@ public class Dialogue : MonoBehaviour {
         nearPlayer = false;
         interactWithPlayer = false;
         dialogueScreen.SetActive (false);
-        currentDialogueTextIndex = -1;
+        // currentDialogueTextIndex = -1;
+        endDialogue = false;
     }
 }

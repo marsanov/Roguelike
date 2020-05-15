@@ -100,9 +100,7 @@ public class BossController : MonoBehaviour {
             if (distanceToPlayer > 3f) {
                 moveDirection = currentPath.vectorPath[currentPathWaypoint] - transform.position;
                 moveDirection.Normalize ();
-            }
-            else
-            {
+            } else {
                 moveDirection = Vector3.zero;
             }
 
@@ -140,6 +138,8 @@ public class BossController : MonoBehaviour {
         }
 
         bossHealthSlider.fillAmount = (float) currentBossHealth / maxBossHealth;
+
+        Debug.Log ((maxBossHealth - currentBossHealth) / Time.time);
     }
 
     private void LookAt (Transform target) {
