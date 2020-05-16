@@ -20,7 +20,7 @@ public class VictoryScreen : MonoBehaviour {
         } else {
             if (Input.anyKey) {
                 // SceneManager.LoadScene(mainMenuScene);
-                SceneManager.LoadSceneAsync (mainMenuScene);
+                AsyncOperation loadingOperation = SceneManager.LoadSceneAsync (mainMenuScene);
             }
         }
     }

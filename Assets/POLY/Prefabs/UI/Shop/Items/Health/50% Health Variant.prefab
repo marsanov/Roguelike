@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 4998221300262050982, guid: 359ad1656c6c59b48903db368e93245f,
         type: 3}
       propertyPath: uniqueIdentifier
-      value: shopItem_50%Health
+      value: 1b9f8415-cb32-4318-86da-7e15c35d5d45
       objectReference: {fileID: 0}
     - target: {fileID: 5178826458444500855, guid: 359ad1656c6c59b48903db368e93245f,
         type: 3}

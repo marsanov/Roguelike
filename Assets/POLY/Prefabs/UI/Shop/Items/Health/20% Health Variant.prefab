@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueIdentifier: shopItem_20%Health
+  uniqueIdentifier: 689a8fd2-146e-4343-901d-3bf1b443cba1
 --- !u!1001 &7617484022894990574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,6 +165,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Restore 20% HP
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370490757853584415, guid: 0a317f4f58237d449b9250f780ba37b6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -379.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370490757853584415, guid: 0a317f4f58237d449b9250f780ba37b6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 89.71857
       objectReference: {fileID: 0}
     - target: {fileID: 6370490758776707836, guid: 0a317f4f58237d449b9250f780ba37b6,
         type: 3}

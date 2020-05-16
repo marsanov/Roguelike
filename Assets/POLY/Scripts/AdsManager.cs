@@ -7,7 +7,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener {
     string placement = "rewardedVideo";
 
     private void Awake () {
-        if (AdsManager.instance == null) instance = this;
+        AdsManager.instance = this;
     }
 
     // Start is called before the first frame update

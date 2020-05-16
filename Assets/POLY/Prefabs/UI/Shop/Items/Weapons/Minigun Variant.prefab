@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &457308226351677394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580549260809468424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 8c54eb10-48e0-471a-bd25-bd794f3a8f31
 --- !u!1001 &6356661008444841426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +23,7 @@ PrefabInstance:
     - target: {fileID: -143232446591035058, guid: de94c986d279baf45978d708a5f08cc5,
         type: 3}
       propertyPath: uniqueIdentifier
-      value: shopItem_Minigun
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 57773642027440849, guid: de94c986d279baf45978d708a5f08cc5,
         type: 3}
@@ -26,7 +39,28 @@ PrefabInstance:
     - target: {fileID: 7468662300647022902, guid: de94c986d279baf45978d708a5f08cc5,
         type: 3}
       propertyPath: m_Text
-      value: "Damage: \t\t\t30\nFire Rate: \t\t0.1\nReload Time: \t\t1\nAmmo:\t\t\t\t20"
+      value: "DPS: \t\t\t\t136\nFire Rate: \t\t0.075\nReload Time: \t\t3\nAmmo:\t\t\t\t100\n\nRelax,
+        this guy will do everything for you. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468662300647022903, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468662300647022903, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -431.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468662300647022903, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 426.60608
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468662300647022903, guid: de94c986d279baf45978d708a5f08cc5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 194.17657
       objectReference: {fileID: 0}
     - target: {fileID: 7468662300813535193, guid: de94c986d279baf45978d708a5f08cc5,
         type: 3}
@@ -86,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 7468662300813535193, guid: de94c986d279baf45978d708a5f08cc5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 270
+      value: 1817
       objectReference: {fileID: 0}
     - target: {fileID: 7468662300813535193, guid: de94c986d279baf45978d708a5f08cc5,
         type: 3}
@@ -161,3 +195,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de94c986d279baf45978d708a5f08cc5, type: 3}
+--- !u!1 &4580549260809468424 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7468662300813535194, guid: de94c986d279baf45978d708a5f08cc5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6356661008444841426}
+  m_PrefabAsset: {fileID: 0}

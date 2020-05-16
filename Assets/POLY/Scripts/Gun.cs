@@ -63,6 +63,8 @@ public class Gun : MonoBehaviour {
                     reloaded = true;
                 }
 
+                if (reloadCounter > 0) reloadCounter -= Time.deltaTime;;
+
                 if (hasAnimation && animator.GetBool ("isShooting")) {
                     animator.SetBool ("isShooting", false);
                 }

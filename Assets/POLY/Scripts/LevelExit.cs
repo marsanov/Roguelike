@@ -10,7 +10,7 @@ public class LevelExit : MonoBehaviour {
         if (other.tag == "Player") {
             //StartCoroutine(LevelManager.instance.LevelEnd());
             //SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-            SceneManager.LoadSceneAsync (SceneManager.GetActiveScene ().name);
+            AsyncOperation loadingOperation = SceneManager.LoadSceneAsync (SceneManager.GetActiveScene ().name);
         }
     }
 }

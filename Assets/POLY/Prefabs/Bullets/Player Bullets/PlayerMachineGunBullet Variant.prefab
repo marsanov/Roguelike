@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 2841371311328373520, guid: fcf2ba6c308a6bc459a44f340717ba01,
         type: 3}
       propertyPath: bulletDamage
-      value: 13
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4006275886354655651, guid: fcf2ba6c308a6bc459a44f340717ba01,
         type: 3}
@@ -101,12 +101,12 @@ PrefabInstance:
     - target: {fileID: 7846084572737127000, guid: fcf2ba6c308a6bc459a44f340717ba01,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.375
+      value: 0.1875
       objectReference: {fileID: 0}
     - target: {fileID: 7846084572737127000, guid: fcf2ba6c308a6bc459a44f340717ba01,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.125
+      value: 0.0625
       objectReference: {fileID: 0}
     - target: {fileID: 7846084572737127000, guid: fcf2ba6c308a6bc459a44f340717ba01,
         type: 3}

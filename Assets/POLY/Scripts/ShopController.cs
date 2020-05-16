@@ -12,7 +12,7 @@ public class ShopController : MonoBehaviour {
     int currentShopCategory;
 
     private void Awake () {
-        ShopController.instance = this;
+        if (ShopController.instance == null) ShopController.instance = this;
     }
 
     public void SwitchCategory (int categoryNumber) {

@@ -31,6 +31,8 @@ public class ItemToBuy : MonoBehaviour, ISaveable {
             } else if (type == ItemType.health) {
                 PlayerHealthController.instance.HealPlayer (restoreHp);
                 AudioManager.instance.PlaySFX (healSoundIndex);
+            }else{
+                Debug.Log("Неизвестный тип предмета");
             }
             LevelManager.instance.currentCoins -= price;
             LevelManager.instance.coinTextRefresh ();

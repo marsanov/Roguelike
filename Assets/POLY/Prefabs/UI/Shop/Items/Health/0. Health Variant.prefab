@@ -155,6 +155,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: Restore HP
       objectReference: {fileID: 0}
+    - target: {fileID: 6370490757853584415, guid: 0a317f4f58237d449b9250f780ba37b6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -379.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370490757853584415, guid: 0a317f4f58237d449b9250f780ba37b6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 89.71857
+      objectReference: {fileID: 0}
     - target: {fileID: 6370490758776707836, guid: 0a317f4f58237d449b9250f780ba37b6,
         type: 3}
       propertyPath: m_Text

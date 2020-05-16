@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour {
     public void StartGame () {
         loadingScreen.gameObject.SetActive (true);
         // SceneManager.LoadScene (sceneToLoad);
-        SceneManager.LoadSceneAsync (sceneToLoad);
+        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync (sceneToLoad);
     }
 
     public void ExitGame () {

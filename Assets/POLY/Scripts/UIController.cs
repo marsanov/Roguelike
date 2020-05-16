@@ -64,7 +64,7 @@ public class UIController : MonoBehaviour {
         Time.timeScale = 1f;
         loadingScreen.gameObject.SetActive (true);
         // SceneManager.LoadScene (newGameScene);
-        SceneManager.LoadSceneAsync (newGameScene);
+        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync (newGameScene);
     }
 
     public void GoToMainMenu () {

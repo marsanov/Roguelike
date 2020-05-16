@@ -4305,6 +4305,11 @@ PrefabInstance:
       propertyPath: nextLevel
       value: Test
       objectReference: {fileID: 0}
+    - target: {fileID: 740705028690059535, guid: 99d8a5c25875b9a42968e98f340a5b1b,
+        type: 3}
+      propertyPath: currentCoins
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 1581338714291526120, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
       propertyPath: m_Name
@@ -4380,11 +4385,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1023682029}
-    - target: {fileID: 4181930841604915894, guid: 99d8a5c25875b9a42968e98f340a5b1b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 193.7998
-      objectReference: {fileID: 0}
     - target: {fileID: 4338763676117368411, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
       propertyPath: m_IsActive
@@ -4414,6 +4414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7643662129581610380, guid: 99d8a5c25875b9a42968e98f340a5b1b,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: 6f288acf-d16d-4994-8a00-fc16eb9e2e0d
       objectReference: {fileID: 0}
     - target: {fileID: 8729223641589439361, guid: 99d8a5c25875b9a42968e98f340a5b1b,
         type: 3}
@@ -10107,6 +10112,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2491347355754867223, guid: 5652d4aa4e8cc8442a2ec822ee5c999a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4118066779008136945, guid: 5652d4aa4e8cc8442a2ec822ee5c999a,
         type: 3}
       propertyPath: m_SizeDelta.x

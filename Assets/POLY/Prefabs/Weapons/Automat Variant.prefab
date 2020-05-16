@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
         type: 3}
       propertyPath: bulletsPerShot
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5082620465493064675, guid: f2f5c31c824a36e4fbb2ad8095a7c8f8,
         type: 3}

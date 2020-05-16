@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour {
 
         UIController.instance.loadingScreen.gameObject.SetActive (true);
         // SceneManager.LoadScene (nextLevel);
-        SceneManager.LoadSceneAsync (nextLevel);
+        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync (nextLevel);
     }
 
     public void PauseUnpause () {
